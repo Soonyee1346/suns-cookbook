@@ -1,0 +1,44 @@
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 80%;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #616161;
+    max-height: 46px;
+}
+
+.barCat {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.barCat:hover {
+    background-color: #686868;
+}
+
+.barlogo {
+    object-fit: cover;
+    padding: 0;
+    max-height: 46px;
+}
+
+.barlogo img {
+    max-height: 46px;
+    object-fit: cover;
+}
+
+.page {
+    float: left;
+}
+
+@media (max-width: 365px) {
+}

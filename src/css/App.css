@@ -1,0 +1,11 @@
+body {
+    font-family: sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(210, 210, 210);
+}
+
+.bold {
+    font-weight: 800;
+}
+
