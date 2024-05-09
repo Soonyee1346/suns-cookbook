@@ -1,5 +1,6 @@
 function PriceTable() {
     return (
+        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src="images/spaghetti.jpeg"/></a>
         <span class="ingredients">
         <h2>Spaghetti</h2>
         <table class="priceTable">
@@ -39,7 +40,7 @@ function PriceTable() {
                 <th>$13.50</th>
             </tr>
         </table>
-    </span>
+    </span></>
     )
 }
 
