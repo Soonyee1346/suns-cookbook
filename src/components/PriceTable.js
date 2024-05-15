@@ -1,9 +1,25 @@
-import spaghetti from "../images/spaghetti.jpeg" //find a way to make this dynamic ya. Pass down props
 import '../css/tables.css'
+import React, { useState, useEffect } from 'react';
 
 function PriceTable(props) {
+
+    const [imgSrc, setImgSrc] = useState("")
+
+    useEffect(() => {
+        const importImage = async () => {
+            try{
+                const image = await import (`../images/${props.recipe.img}`);
+                setImgSrc(image.default);
+            }
+            catch(error) {
+                console.error('Error loading image:', error);
+            }
+        }
+        importImage();
+    },[props.recipe.img])
+
     return (
-        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src={spaghetti}/></a>
+        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src={imgSrc}/></a>
         <span className="ingredients">
         <h2>{props.recipe.name}</h2>
         <table className="priceTable">
