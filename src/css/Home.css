@@ -19,8 +19,8 @@ h1 {
     
 }
 
-.homefood img {
-    object-fit: contain;
+.homefood img{
+    object-fit: cover;
     max-width: 100%;
     border-radius: 5%;
     overflow-y: hidden;
