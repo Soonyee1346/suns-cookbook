@@ -1,6 +1,51 @@
 h1 {
     text-align: center;
     font-size: 3rem;
-    margin-top: 5rem;
 }
 
+.bold {
+    font-weight: 800;
+}
+
+.homefood {
+    display: flex;
+    max-height: 400px;
+    margin-bottom: 4rem;
+}
+
+.left {
+    flex-direction: row;
+    justify-content: left;
+    
+}
+
+.homefood img {
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 5%;
+}
+
+.recipelink {
+    max-width: 50%;
+}
+
+.left .recipelink {
+    margin-right: 3rem;
+}
+
+.right {
+    justify-content: right;
+    flex-direction: row-reverse;
+}
+
+.ingredients {
+    flex-grow: 1;
+}
+
+.priceTable {
+    width: 100%;
+}
+
+.priceTable td, .priceTable th{
+    text-align: left;
+}

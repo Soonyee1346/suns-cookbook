@@ -1,9 +1,12 @@
-function PriceTable() {
+import spaghetti from "../images/spaghetti.jpeg" //find a way to make this dynamic ya. Pass down props
+import '../css/tables.css'
+
+function PriceTable(props) {
     return (
-        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src="images/spaghetti.jpeg"/></a>
-        <span class="ingredients">
-        <h2>Spaghetti</h2>
-        <table class="priceTable">
+        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src={spaghetti}/></a>
+        <span className="ingredients">
+        <h2>{props.recipe.name}</h2>
+        <table className="priceTable">
             <tr>
                 <th>Ingredients</th>
                 <th>RRP</th>

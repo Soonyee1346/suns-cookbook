@@ -1,0 +1,9 @@
+.table {
+    display: block;
+    margin: auto;
+    width: 75%;
+}
+
+.priceTable {
+    text-align: left;
+}
