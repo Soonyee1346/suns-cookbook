@@ -16,10 +16,31 @@ function PriceTable(props) {
             }
         }
         importImage();
-    },[props.recipe.img])
+    },[props.recipe.img]);
+
+    function createTable(ingArray) {
+        let table = "";
+        let totalSaved = 0;
+        let total = 0;
+        ingArray.forEach((ing) => {
+            var same = true;
+            if(ing.rrp !== ing.price){
+                same = false;
+                totalSaved += ing.rrp - ing.price
+            }
+
+            table += `<tr><td>${ing.name}</td><td>${same ? "" : `<s>${ing.rrp}</s>`}</td><td>${ing.price}</td></tr>`
+
+            total += ing.price
+        });
+
+        table += `<tr><td>Total</td><td>${totalSaved}</td><td>${total}</td></tr>`
+
+        return table;
+    }
 
     return (
-        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src={imgSrc}/></a>
+        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={imgSrc}/></a>
         <span className="ingredients">
         <h2>{props.recipe.name}</h2>
         <table className="priceTable">
@@ -28,36 +49,7 @@ function PriceTable(props) {
                 <th>RRP</th>
                 <th>Current Price</th>
             </tr>
-            <tr>
-                <td>Pasta</td>
-                <td><s>$3.00</s></td>
-                <td>$2.00</td>
-            </tr>
-            <tr>
-                <td>Minced Meat</td>
-                <td></td>
-                <td>$5.00</td>
-            </tr>
-            <tr>
-                <td>Pasta Sauce</td>
-                <td><s>$4.50</s></td>
-                <td>$3.00</td>
-            </tr>
-            <tr>
-                <td>Garlic</td>
-                <td></td>
-                <td>$2.00</td>
-            </tr>
-            <tr>
-                <td>Onion</td>
-                <td></td>
-                <td>$1.50</td>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <th>$2.50</th>
-                <th>$13.50</th>
-            </tr>
+            ${createTable(props.recipe.ingredients)}
         </table>
     </span></>
     )
