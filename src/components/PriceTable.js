@@ -19,38 +19,53 @@ function PriceTable(props) {
     },[props.recipe.img]);
 
     function createTable(ingArray) {
-        let table = "";
-        let totalSaved = 0;
+        const rows = [];
+        let saved = 0;
         let total = 0;
-        ingArray.forEach((ing) => {
-            var same = true;
-            if(ing.rrp !== ing.price){
-                same = false;
-                totalSaved += ing.rrp - ing.price
-            }
+        let row = ""
 
-            table += `<tr><td>${ing.name}</td><td>${same ? "" : `<s>${ing.rrp}</s>`}</td><td>${ing.price}</td></tr>`
-
+        for (let i = 0; i < ingArray.length; i++) {
+            const ing = ingArray[i];
+            row = (
+                <tr key={i}>
+                    <td>{ing.name}</td>
+                    <td><s>{ing.rrp !== ing.price ? `$${ing.rrp}` : ''}</s></td>
+                    <td>${ing.price}</td>
+                </tr>
+            );
+            saved += (ing.rrp - ing.price)
             total += ing.price
-        });
+            rows.push(row);
+        }
 
-        table += `<tr><td>Total</td><td>${totalSaved}</td><td>${total}</td></tr>`
+        row = (<tr key={ingArray.length}>
+        <td>Total</td>
+        <td><s>${saved}</s></td>
+        <td>${total}</td>
+        </tr>)
 
-        return table;
+        rows.push(row)
+    
+        return rows;
     }
 
     return (
         <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={imgSrc}/></a>
         <span className="ingredients">
         <h2>{props.recipe.name}</h2>
-        <table className="priceTable">
-            <tr>
-                <th>Ingredients</th>
-                <th>RRP</th>
-                <th>Current Price</th>
-            </tr>
-            ${createTable(props.recipe.ingredients)}
+        <table className="priceTable" id="priceTable">
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>RRP</th>
+                    <th>Current Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {createTable(props.recipe.ingredients)}
+            </tbody>
         </table>
+        <div className="priceLine"></div>
     </span></>
     )
 }
