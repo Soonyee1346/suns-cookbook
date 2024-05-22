@@ -4,7 +4,7 @@ import PriceTable from '../components/PriceTable.js';
 function Home() {
     const spaghetti = {
         name: "Spaghetti",
-        img: "Spaghetti.jpeg",
+        img: "spaghetti.jpeg",
         ingredients: [{
             name: "Pasta",
             rrp: 3,
