@@ -22,7 +22,7 @@ function PriceTable(props) {
         const rows = [];
         let saved = 0;
         let total = 0;
-        let row = ""
+        let row
 
         for (let i = 0; i < ingArray.length; i++) {
             const ing = ingArray[i];

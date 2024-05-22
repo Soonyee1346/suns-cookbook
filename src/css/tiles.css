@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.boxtitle {
+    font-size: 2rem;
+}
+
+.boxprice {
+    font-size: 1.5rem;
+}
+
+.box img {
+    max-width: 100%;
+    border-radius: 5%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 50%;
+    
+}
+
+.box {
+    background-color: rgb(229, 229, 229);
+    width: 16rem;
+    height: 30rem;
+    border-radius: 5%;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 2rem;
+}
+
+.box:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+.recipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
