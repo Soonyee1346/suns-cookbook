@@ -7,18 +7,19 @@ function createTiles(recipeArr){
     let row
 
     for (let i = 0; i < recipeArr.length; i++) {
-        const ing = recipeArr[i];
+        const tile = recipeArr[i];
+        const img = `./images/${tile.img}`
+        const key = `tile${i}`
+        console.log(img)
         row = (
-            <Link className="box" to="/Recipes/Spaghetti.html">
-                    <img src="images/spaghetti.jpeg" />
-                    <h1 class="boxtitle bold">Spaghetti</h1>
-                    <h1 class="boxprice bold">$13.50</h1>
+            <Link className="box" to="/Recipes/Spaghetti.html" key={key}>
+                    <img src={img} />
+                    <h1 className="boxtitle bold">Spaghetti</h1>
+                    <h1 className="boxprice bold">$13.50</h1>
             </Link>
         );
         rows.push(row);
     }
-
-    rows.push(row)
 
     return rows;
 
