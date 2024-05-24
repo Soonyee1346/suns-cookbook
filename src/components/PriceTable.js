@@ -3,20 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 function PriceTable(props) {
 
-    const [imgSrc, setImgSrc] = useState("")
-
-    useEffect(() => {
-        const importImage = async () => {
-            try{
-                const image = await import (`../images/${props.recipe.img}`);
-                setImgSrc(image.default);
-            }
-            catch(error) {
-                console.error('Error loading image:', error);
-            }
-        }
-        importImage();
-    },[props.recipe.img]);
+    const img = `/images/${props.recipe.img}`
 
     function createTable(ingArray) {
         const rows = [];
@@ -50,7 +37,7 @@ function PriceTable(props) {
     }
 
     return (
-        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={imgSrc}/></a>
+        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={img}/></a>
         <span className="ingredients">
         <h2>{props.recipe.name}</h2>
         <table className="priceTable" id="priceTable">

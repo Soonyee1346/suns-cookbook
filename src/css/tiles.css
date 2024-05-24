@@ -15,12 +15,11 @@ h1 {
 }
 
 .box img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 5%;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     height: 50%;
-    
 }
 
 .box {

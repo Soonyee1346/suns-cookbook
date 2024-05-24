@@ -28,7 +28,7 @@ function Recipes() {
             price: 1.5
         }],
         get totalPrice() {
-            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0);
+            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0).toFixed(2);
         }
     }
 
@@ -57,7 +57,7 @@ function Recipes() {
             price: 1.5
         }],
         get totalPrice() {
-            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0);
+            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0).toFixed(2);
         }
     }
 
