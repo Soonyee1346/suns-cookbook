@@ -3,62 +3,56 @@ import React, { useState, useEffect } from 'react';
 
 function PriceTable(props) {
 
-    const [imgSrc, setImgSrc] = useState("")
+    const img = `/images/${props.recipe.img}`
 
-    useEffect(() => {
-        const importImage = async () => {
-            try{
-                const image = await import (`../images/${props.recipe.img}`);
-                setImgSrc(image.default);
-            }
-            catch(error) {
-                console.error('Error loading image:', error);
-            }
+    function createTable(ingArray) {
+        const rows = [];
+        let saved = 0;
+        let total = 0;
+        let row
+
+        for (let i = 0; i < ingArray.length; i++) {
+            const ing = ingArray[i];
+            row = (
+                <tr key={i}>
+                    <td>{ing.name}</td>
+                    <td><s>{ing.rrp !== ing.price ? `$${ing.rrp}` : ''}</s></td>
+                    <td>${ing.price}</td>
+                </tr>
+            );
+            saved += (ing.rrp - ing.price)
+            total += ing.price
+            rows.push(row);
         }
-        importImage();
-    },[props.recipe.img])
+
+        row = (<tr key={ingArray.length}>
+        <td>Total</td>
+        <td><s>${saved}</s></td>
+        <td>${total}</td>
+        </tr>)
+
+        rows.push(row)
+    
+        return rows;
+    }
 
     return (
-        <><a className="recipelink" href="Recipes/Spaghetti.html"><img src={imgSrc}/></a>
+        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={img}/></a>
         <span className="ingredients">
         <h2>{props.recipe.name}</h2>
-        <table className="priceTable">
-            <tr>
-                <th>Ingredients</th>
-                <th>RRP</th>
-                <th>Current Price</th>
-            </tr>
-            <tr>
-                <td>Pasta</td>
-                <td><s>$3.00</s></td>
-                <td>$2.00</td>
-            </tr>
-            <tr>
-                <td>Minced Meat</td>
-                <td></td>
-                <td>$5.00</td>
-            </tr>
-            <tr>
-                <td>Pasta Sauce</td>
-                <td><s>$4.50</s></td>
-                <td>$3.00</td>
-            </tr>
-            <tr>
-                <td>Garlic</td>
-                <td></td>
-                <td>$2.00</td>
-            </tr>
-            <tr>
-                <td>Onion</td>
-                <td></td>
-                <td>$1.50</td>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <th>$2.50</th>
-                <th>$13.50</th>
-            </tr>
+        <table className="priceTable" id="priceTable">
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>RRP</th>
+                    <th>Current Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {createTable(props.recipe.ingredients)}
+            </tbody>
         </table>
+        <div className="priceLine"></div>
     </span></>
     )
 }

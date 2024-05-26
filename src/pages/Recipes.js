@@ -1,7 +1,8 @@
-import '../css/Home.css';
-import PriceTable from '../components/PriceTable.js';
+import Tiles from "../components/RecipeTiles"
 
-function Home() {
+
+function Recipes() {
+
     const spaghetti = {
         name: "Spaghetti",
         img: "spaghetti.jpeg",
@@ -25,7 +26,10 @@ function Home() {
             name: "Onion",
             rrp: 1.5,
             price: 1.5
-        }]
+        }],
+        get totalPrice() {
+            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0).toFixed(2);
+        }
     }
 
     const chickenRice = {
@@ -51,25 +55,22 @@ function Home() {
             name: "Onion",
             rrp: 1.5,
             price: 1.5
-        }]
+        }],
+        get totalPrice() {
+            return this.ingredients.reduce((total, ingredient) => total + ingredient.price, 0).toFixed(2);
+        }
     }
 
     const recipeArr = [spaghetti, chickenRice, spaghetti]
+
     return (
-        <>  
-            <h1 className="bold">Most Discounted Meals This Week</h1>
-            <div className="homefood left">
-                <PriceTable recipe={recipeArr[0]}/>
+        <>
+            <h1>Recipes</h1>
+            <div className="recipes">
+                <Tiles recipeArr={recipeArr}/>
             </div>
-            <div className="homefood right">
-                <PriceTable recipe={recipeArr[1]}/>
-            </div>
-            <div className="homefood left">
-                <PriceTable recipe={recipeArr[2]}/>
-            </div>
-        
         </>
     )
-  }
+}
 
-  export default Home;
+export default Recipes
