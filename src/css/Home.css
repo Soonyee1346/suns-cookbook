@@ -51,3 +51,8 @@ h1 {
 .priceTable td, .priceTable th{
     text-align: left;
 }
+
+.refreshHome {
+    border-radius: 25%;
+    margin-bottom: 4rem;
+}

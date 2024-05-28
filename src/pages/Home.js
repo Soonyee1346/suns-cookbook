@@ -1,75 +1,62 @@
 import '../css/Home.css';
 import PriceTable from '../components/PriceTable.js';
+import { useState } from 'react'
 
-function Home() {
-    const spaghetti = {
-        name: "Spaghetti",
-        img: "spaghetti.jpeg",
-        ingredients: [{
-            name: "Pasta",
-            rrp: 3,
-            price: 2
-        }, {
-            name: "Minced Meat",
-            rrp: 5,
-            price: 5
-        }, {
-            name: "Pasta Sauce",
-            rrp: 4,
-            price: 3
-        }, {
-            name: "Garlic",
-            rrp: 2,
-            price: 2
-        }, {
-            name: "Onion",
-            rrp: 1.5,
-            price: 1.5
-        }]
+function Home(props) {
+    const [rec1, setRec1] = useState(0)
+    const [rec2, setRec2] = useState(1)
+    const [rec3, setRec3] = useState(2)
+
+    function changeRecipes() {
+        var recArr = []
+        var same = true;
+
+        var firstRec = Math.floor(Math.random() * props.Data.length)
+
+        recArr.push(firstRec)
+
+        while(same){
+            var secondRec = Math.floor(Math.random() * props.Data.length)
+
+            if(secondRec != firstRec){
+                recArr.push(secondRec)
+                same = false;
+            }
+        }
+
+        same = true;
+
+        while(same){
+            var thirdRec = Math.floor(Math.random() * props.Data.length)
+
+            if(thirdRec != firstRec && thirdRec != secondRec){
+                recArr.push(thirdRec)
+                same = false;
+            }
+        }
+
+        setRec1(recArr[0]);
+        setRec2(recArr[1]);
+        setRec3(recArr[2]);
+
     }
 
-    const chickenRice = {
-        name: "Chicken Rice",
-        img: "chickenrice.jpg",
-        ingredients: [{
-            name: "Pasta",
-            rrp: 3,
-            price: 2
-        }, {
-            name: "Minced Meat",
-            rrp: 5,
-            price: 5
-        }, {
-            name: "Pasta Sauce",
-            rrp: 4,
-            price: 3
-        }, {
-            name: "Garlic",
-            rrp: 2,
-            price: 2
-        }, {
-            name: "Onion",
-            rrp: 1.5,
-            price: 1.5
-        }]
-    }
-
-    const recipeArr = [spaghetti, chickenRice, spaghetti]
     return (
         <>  
-            <h1 className="bold">Most Discounted Meals This Week</h1>
+            <h1 className="bold">Suggested Meals This Week</h1>
+            <button className="refreshHome" onClick={changeRecipes}><i class="fa fa-refresh" aria-hidden="true"></i></button>
             <div className="homefood left">
-                <PriceTable recipe={recipeArr[0]}/>
+                <PriceTable recipe={props.Data[rec1]}/>
             </div>
             <div className="homefood right">
-                <PriceTable recipe={recipeArr[1]}/>
+                <PriceTable recipe={props.Data[rec2]}/>
             </div>
             <div className="homefood left">
-                <PriceTable recipe={recipeArr[2]}/>
+                <PriceTable recipe={props.Data[rec3]}/>
             </div>
         
         </>
     )
-  }
+}
 
   export default Home;
