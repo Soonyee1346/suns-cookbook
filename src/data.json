@@ -1,0 +1,111 @@
+[
+    {
+        "id": "0",
+        "name": "Spaghetti",
+        "img": "spaghetti.jpeg",
+        "ingredients": [
+            {
+                "name": "Pasta",
+                "quantity": "500g"
+            },
+            {
+                "name": "Minced Meat",
+                "quantity": "500g"
+            },
+            {
+                "name": "Pasta Sauce",
+                "quantity": "500g"
+            },
+            {
+                "name": "Garlic",
+                "quantity": "3 Cloves"
+            },
+            {
+                "name": "Small Onion",
+                "quantity": "1"
+            }
+        ]
+    },
+    {
+        "id": "1",
+        "name": "Chicken Rice",
+        "img": "chickenrice.jpg",
+        "ingredients": [
+            {
+                "name": "Rice",
+                "quantity": "1 cup"
+            },
+            {
+                "name": "Chicken Breast",
+                "quantity": "1"
+            },
+            {
+                "name": "Cucumber Slices",
+                "quantity": "8"
+            },
+            {
+                "name": "Hainanese Rice Paste",
+                "quantity": "2 Tablespoons"
+            },
+            {
+                "name": "Sweet Soy",
+                "quantity": "Eyeball it"
+            },
+            {
+                "name": "(Optional) Fried Garlic",
+                "quantity": "1 Tablespoon"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Honey Chicken Rice and Potato (for 4)",
+        "img": "honeychicken.jpg",
+        "ingredients": [
+            {
+                "name": "Rice",
+                "quantity": "2 cups"
+            },
+            {
+                "name": "Chicken Breast",
+                "quantity": "650g"
+            },
+            {
+                "name": "White Potato",
+                "quantity": "700g"
+            },
+            {
+                "name": "Honey",
+                "quantity": "2 Tablespoons"
+            },
+            {
+                "name": "Paprika",
+                "quantity": "3 Tablespoons"
+            },
+            {
+                "name": "Garlic Powder",
+                "quantity": "2 Tablespoons"
+            },
+            {
+                "name": "Oregano Leaves",
+                "quantity": "1 Tablespoon"
+            },
+            {
+                "name": "Minced Garlic",
+                "quantity": "2 Tablespoons"
+            },
+            {
+                "name": "Olive Oil",
+                "quantity": "1 Tablespoon"
+            },
+            {
+                "name": "Butter",
+                "quantity": "2 Tablespoons"
+            },
+            {
+                "name": "Black Pepper",
+                "quantity": "Eyeball it"
+            }
+        ]
+    }
+]
