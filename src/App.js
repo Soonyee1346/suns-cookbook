@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js'
 import Recipes from './pages/Recipes.js'
 import RecipeMaker from './pages/RecipeMaker.js';
+import Data from './data.json'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <Nav/>
       <div className="topdivider"></div>
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home Data= {Data} />}/>
         <Route path="/Recipes" element={<Recipes />}/>
         <Route path="/RecipeMaker" element={<RecipeMaker />}/>
       </Routes>
