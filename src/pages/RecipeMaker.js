@@ -1,9 +1,26 @@
+import { useState } from 'react'
+
 function RecipeMaker() {
 
-    function addIng() {
-        var ingList = document.getElementById("ingList");
+    const [ingNum, setIngNum] = useState(1)
+    var ingList
 
-        ingList.appendChild() //idk about this method bro
+    function addIng() {
+        var currentIng = ingNum + 1
+        var ingList = document.getElementById("ingList");
+        var innerDiv = document.createElement('div');
+
+        var ingInput = document.createElement('input')
+        ingInput.type = "text";
+        ingInput.id=`ingredient${currentIng}`;
+        ingInput.value = "ingredient";
+
+        
+        innerDiv.id = `ing${currentIng}`
+
+        innerDiv.appendChild(ingInput)
+        ingList.appendChild(innerDiv)
+        //setIngNum(ingNum + 1)
     }
 
     return (
@@ -27,7 +44,7 @@ function RecipeMaker() {
                         </div>
                     </div>
                 </div>
-                <button className="addIng"><i class="fa-solid fa-plus" onClick={addIng()}></i></button>
+                <button className="addIng"><i className="fa-solid fa-plus" onClick={addIng}></i></button>
             </div>
         </>
     )
