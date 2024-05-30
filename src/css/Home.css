@@ -11,12 +11,11 @@ h1 {
     display: flex;
     max-height: 400px;
     margin-bottom: 4rem;
+    justify-content: center;
 }
 
 .left {
     flex-direction: row;
-    justify-content: left;
-    
 }
 
 .homefood img{
@@ -36,7 +35,6 @@ h1 {
 }
 
 .right {
-    justify-content: right;
     flex-direction: row-reverse;
 }
 
