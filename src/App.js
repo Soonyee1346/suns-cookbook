@@ -14,7 +14,7 @@ function App() {
       <div className="topdivider"></div>
       <Routes>
         <Route path="/" element={<Home Data= {Data} />}/>
-        <Route path="/Recipes" element={<Recipes />}/>
+        <Route path="/Recipes" element={<Recipes Data= {Data}/>}/>
         <Route path="/RecipeMaker" element={<RecipeMaker />}/>
       </Routes>
     </div>

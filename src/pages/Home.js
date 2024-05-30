@@ -45,14 +45,16 @@ function Home(props) {
         <>  
             <h1 className="bold">Suggested Meals This Week</h1>
             <button className="refreshHome" onClick={changeRecipes}><i class="fa fa-refresh" aria-hidden="true"></i></button>
-            <div className="homefood left">
-                <PriceTable recipe={props.Data[rec1]}/>
-            </div>
-            <div className="homefood right">
-                <PriceTable recipe={props.Data[rec2]}/>
-            </div>
-            <div className="homefood left">
-                <PriceTable recipe={props.Data[rec3]}/>
+            <div className="homecontainer">
+                <div className="homefood left">
+                    <PriceTable recipe={props.Data[rec1]}/>
+                </div>
+                <div className="homefood right">
+                    <PriceTable recipe={props.Data[rec2]}/>
+                </div>
+                <div className="homefood left">
+                    <PriceTable recipe={props.Data[rec3]}/>
+                </div>
             </div>
         
         </>

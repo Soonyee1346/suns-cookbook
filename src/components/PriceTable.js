@@ -7,8 +7,6 @@ function PriceTable(props) {
 
     function createTable(ingArray) {
         const rows = [];
-        let saved = 0;
-        let total = 0;
         let row
 
         for (let i = 0; i < ingArray.length; i++) {
@@ -16,22 +14,11 @@ function PriceTable(props) {
             row = (
                 <tr key={i}>
                     <td>{ing.name}</td>
-                    <td><s>{ing.rrp !== ing.price ? `$${ing.rrp}` : ''}</s></td>
-                    <td>${ing.price}</td>
+                    <td>{ing.quantity}</td>
                 </tr>
             );
-            saved += (ing.rrp - ing.price)
-            total += ing.price
             rows.push(row);
         }
-
-        row = (<tr key={ingArray.length}>
-        <td>Total</td>
-        <td><s>${saved}</s></td>
-        <td>${total}</td>
-        </tr>)
-
-        rows.push(row)
     
         return rows;
     }
@@ -44,8 +31,7 @@ function PriceTable(props) {
             <thead>
                 <tr>
                     <th>Ingredients</th>
-                    <th>RRP</th>
-                    <th>Current Price</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
