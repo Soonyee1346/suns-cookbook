@@ -1,5 +1,4 @@
 import '../css/tables.css'
-import React, { useState, useEffect } from 'react';
 
 function PriceTable(props) {
 
@@ -13,7 +12,7 @@ function PriceTable(props) {
             const ing = ingArray[i];
             row = (
                 <tr key={i}>
-                    <td>{ing.name}</td>
+                    <td>{ing.ingredient}</td>
                     <td>{ing.quantity}</td>
                 </tr>
             );

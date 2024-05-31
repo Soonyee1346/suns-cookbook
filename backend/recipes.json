@@ -1,0 +1,134 @@
+[
+  {
+    "id": "0",
+    "name": "Spaghetti",
+    "img": "spaghetti.jpeg",
+    "ingredients": [
+      {
+        "ingredient": "Pasta",
+        "quantity": "500g"
+      },
+      {
+        "ingredient": "Minced Meat",
+        "quantity": "500g"
+      },
+      {
+        "ingredient": "Pasta Sauce",
+        "quantity": "500g"
+      },
+      {
+        "ingredient": "Garlic",
+        "quantity": "3 Cloves"
+      },
+      {
+        "ingredient": "Small Onion",
+        "quantity": "1"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Chicken Rice",
+    "img": "chickenrice.jpg",
+    "ingredients": [
+      {
+        "ingredient": "Rice",
+        "quantity": "1 cup"
+      },
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": "1"
+      },
+      {
+        "ingredient": "Cucumber Slices",
+        "quantity": "8"
+      },
+      {
+        "ingredient": "Hainanese Rice Paste",
+        "quantity": "2 Tablespoons"
+      },
+      {
+        "ingredient": "Sweet Soy",
+        "quantity": "Eyeball it"
+      },
+      {
+        "ingredient": "(Optional) Fried Garlic",
+        "quantity": "1 Tablespoon"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Honey Chicken Rice and Potato (for 4)",
+    "img": "honeychicken.jpeg",
+    "ingredients": [
+      {
+        "ingredient": "Rice",
+        "quantity": "2 cups"
+      },
+      {
+        "ingredient": "Chicken Breast",
+        "quantity": "650g"
+      },
+      {
+        "ingredient": "White Potato",
+        "quantity": "700g"
+      },
+      {
+        "ingredient": "Honey",
+        "quantity": "2 Tablespoons"
+      },
+      {
+        "ingredient": "Paprika",
+        "quantity": "3 Tablespoons"
+      },
+      {
+        "ingredient": "Garlic Powder",
+        "quantity": "2 Tablespoons"
+      },
+      {
+        "ingredient": "Oregano Leaves",
+        "quantity": "1 Tablespoon"
+      },
+      {
+        "ingredient": "Minced Garlic",
+        "quantity": "2 Tablespoons"
+      },
+      {
+        "ingredient": "Olive Oil",
+        "quantity": "1 Tablespoon"
+      },
+      {
+        "ingredient": "Butter",
+        "quantity": "2 Tablespoons"
+      },
+      {
+        "ingredient": "Black Pepper",
+        "quantity": "Eyeball it"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "test",
+    "img": "chickenrice.jpg",
+    "ingredients": [
+      {
+        "ingredient": "1",
+        "quantity": "2"
+      },
+      {
+        "ingredient": "3",
+        "quantity": "4"
+      },
+      {
+        "ingredient": "5",
+        "quantity": "6"
+      },
+      {
+        "ingredient": "7",
+        "quantity": "8"
+      }
+    ]
+  }
+]

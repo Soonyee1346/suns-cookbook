@@ -1,14 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 function RecipeMaker() {
 
     const [ingNum, setIngNum] = useState(1)
-    var ingList
+    const [recipes, setRecipes] = useState([])
+
+    useEffect(() => {
+        fetchRecipes();
+    }, [])
+
+    function fetchRecipes() {
+        axios.get('http://localhost:3001/recipes.json')
+            .then(response => {
+                setRecipes(response.data);
+            })
+            .catch(error => {
+                console.error('There was an error fetching the recipes', error);
+            });
+    }
 
     function addIng() {
         var currentIng = ingNum + 1
         var ingList = document.getElementById("ingList");
         var innerDiv = document.createElement('div');
+        innerDiv.id = `ing${currentIng}`
 
         var ingInput = document.createElement('input')
         ingInput.type = "text";
@@ -21,9 +37,6 @@ function RecipeMaker() {
         quantityInput.id=`quantity${currentIng}`;
         quantityInput.placeholder="quantity"
 
-        
-        innerDiv.id = `ing${currentIng}`
-
         innerDiv.appendChild(ingInput)
         innerDiv.appendChild(quantityInput)
         ingList.appendChild(innerDiv)
@@ -34,24 +47,38 @@ function RecipeMaker() {
         document.getElementById('image').click();
     }
 
-    function passData() {
-        let dataArr = []
-        for(let i=1; i < ingNum + 1; i++){
-            dataArr[i-1] = document.getElementById(`ingredient${i}`).value
-        }
+    function submitRecipe() {
+        console.log("hi")
+        var recipeData = formatData();
 
-        displayData(dataArr)
+        axios.post('http://localhost:3001/RecipeMaker', recipeData)
+            .then(response => {
+                console.log(response.data);
+                fetchRecipes();  // Fetch updated recipes after submission
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+
+        console.log("bye")
     }
 
-    function displayData(dataArr) {
-        var dataDiv = document.getElementById("data");
-        let string = ""
-
-        for(let i=0; i < dataArr.length; i++){
-            string += dataArr[i]
+    function formatData() {
+        const id = "3"
+        const name = document.getElementById("name").value
+        const img = "chickenrice.jpg"
+        let ingredients = []
+        
+        for(let i=1; i < ingNum + 1; i++){
+            let ingredient = document.getElementById(`ingredient${i}`).value
+            let quantity = document.getElementById(`quantity${i}`).value
+            let ing = {ingredient, quantity}
+            ingredients.push(ing)
         }
 
-        dataDiv.innerHTML = string
+        let recipeData = {id, name, img, ingredients}
+
+        return recipeData
     }
 
     return (
@@ -77,7 +104,7 @@ function RecipeMaker() {
                     </div>
                 </div>
                 <button className="addIng"><i className="fa-solid fa-plus" onClick={addIng}></i></button>
-                <button className="submit" onClick={passData}>Submit</button>
+                <button className="submit" onClick={submitRecipe}>Submit</button>
                 <div id="data"></div>
             </div>
         </>

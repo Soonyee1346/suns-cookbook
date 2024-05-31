@@ -5,23 +5,23 @@
         "img": "spaghetti.jpeg",
         "ingredients": [
             {
-                "name": "Pasta",
+                "ingredient": "Pasta",
                 "quantity": "500g"
             },
             {
-                "name": "Minced Meat",
+                "ingredient": "Minced Meat",
                 "quantity": "500g"
             },
             {
-                "name": "Pasta Sauce",
+                "ingredient": "Pasta Sauce",
                 "quantity": "500g"
             },
             {
-                "name": "Garlic",
+                "ingredient": "Garlic",
                 "quantity": "3 Cloves"
             },
             {
-                "name": "Small Onion",
+                "ingredient": "Small Onion",
                 "quantity": "1"
             }
         ]
@@ -32,27 +32,27 @@
         "img": "chickenrice.jpg",
         "ingredients": [
             {
-                "name": "Rice",
+                "ingredient": "Rice",
                 "quantity": "1 cup"
             },
             {
-                "name": "Chicken Breast",
+                "ingredient": "Chicken Breast",
                 "quantity": "1"
             },
             {
-                "name": "Cucumber Slices",
+                "ingredient": "Cucumber Slices",
                 "quantity": "8"
             },
             {
-                "name": "Hainanese Rice Paste",
+                "ingredient": "Hainanese Rice Paste",
                 "quantity": "2 Tablespoons"
             },
             {
-                "name": "Sweet Soy",
+                "ingredient": "Sweet Soy",
                 "quantity": "Eyeball it"
             },
             {
-                "name": "(Optional) Fried Garlic",
+                "ingredient": "(Optional) Fried Garlic",
                 "quantity": "1 Tablespoon"
             }
         ]
@@ -63,47 +63,47 @@
         "img": "honeychicken.jpeg",
         "ingredients": [
             {
-                "name": "Rice",
+                "ingredient": "Rice",
                 "quantity": "2 cups"
             },
             {
-                "name": "Chicken Breast",
+                "ingredient": "Chicken Breast",
                 "quantity": "650g"
             },
             {
-                "name": "White Potato",
+                "ingredient": "White Potato",
                 "quantity": "700g"
             },
             {
-                "name": "Honey",
+                "ingredient": "Honey",
                 "quantity": "2 Tablespoons"
             },
             {
-                "name": "Paprika",
+                "ingredient": "Paprika",
                 "quantity": "3 Tablespoons"
             },
             {
-                "name": "Garlic Powder",
+                "ingredient": "Garlic Powder",
                 "quantity": "2 Tablespoons"
             },
             {
-                "name": "Oregano Leaves",
+                "ingredient": "Oregano Leaves",
                 "quantity": "1 Tablespoon"
             },
             {
-                "name": "Minced Garlic",
+                "ingredient": "Minced Garlic",
                 "quantity": "2 Tablespoons"
             },
             {
-                "name": "Olive Oil",
+                "ingredient": "Olive Oil",
                 "quantity": "1 Tablespoon"
             },
             {
-                "name": "Butter",
+                "ingredient": "Butter",
                 "quantity": "2 Tablespoons"
             },
             {
-                "name": "Black Pepper",
+                "ingredient": "Black Pepper",
                 "quantity": "Eyeball it"
             }
         ]

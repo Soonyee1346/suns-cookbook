@@ -44,7 +44,7 @@ function Home(props) {
     return (
         <>  
             <h1 className="bold">Suggested Meals This Week</h1>
-            <button className="refreshHome" onClick={changeRecipes}><i class="fa fa-refresh" aria-hidden="true"></i></button>
+            <button className="refreshHome" onClick={changeRecipes}><i className="fa fa-refresh" aria-hidden="true"></i></button>
             <div className="homecontainer">
                 <div className="homefood left">
                     <PriceTable recipe={props.Data[rec1]}/>
