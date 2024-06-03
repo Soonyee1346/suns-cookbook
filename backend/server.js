@@ -18,13 +18,15 @@ app.post('/RecipeMaker', (req, res) => {
             return;
         }
 
-        let recipes = JSON.parse(data);
+        let recipesData = JSON.parse(data);
+
+        let recipes = recipesData[0].recipes
 
         // Append the new recipe
         recipes.push(newRecipe);
 
         // Write the updated JSON back to the file
-        fs.writeFile('recipes.json', JSON.stringify(recipes, null, 2), 'utf8', (writeErr) => {
+        fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
             if (writeErr) {
                 console.error('Error writing to the file:', writeErr);
                 res.status(500).send('Error writing to the file');
