@@ -48,22 +48,20 @@ function RecipeMaker() {
     }
 
     function submitRecipe() {
-        console.log("hi")
         var recipeData = formatData();
 
         axios.post('http://localhost:3001/RecipeMaker', recipeData)
             .then(response => {
-                console.log(response.data);
                 fetchRecipes();  // Fetch updated recipes after submission
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
 
-        console.log("bye")
     }
 
     function formatData() {
+        console.log(recipes)
         const id = "3"
         const name = document.getElementById("name").value
         const img = "chickenrice.jpg"

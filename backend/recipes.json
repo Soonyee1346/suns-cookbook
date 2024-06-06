@@ -110,6 +110,28 @@
             "quantity": "Eyeball it"
           }
         ]
+      },
+      {
+        "id": "3",
+        "name": "test",
+        "img": "chickenrice.jpg",
+        "ingredients": [
+          {
+            "ingredient": "1",
+            "quantity": "2"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "test",
+        "img": "chickenrice.jpg",
+        "ingredients": [
+          {
+            "ingredient": "1",
+            "quantity": "2"
+          }
+        ]
       }
     ]
   }
