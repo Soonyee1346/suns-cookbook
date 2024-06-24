@@ -8,6 +8,10 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/App', (req, res) => {
+    res.sendFile(path.join(__dirname, 'recipes.json'));
+});
+
 app.post('/RecipeMaker', (req, res) => {
     const newRecipe = req.body;
 
