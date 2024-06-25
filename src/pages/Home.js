@@ -11,12 +11,12 @@ function Home(props) {
         var recArr = []
         var same = true;
 
-        var firstRec = Math.floor(Math.random() * props.Data.length)
+        var firstRec = Math.floor(Math.random() * props.Recipes.length)
 
         recArr.push(firstRec)
 
         while(same){
-            var secondRec = Math.floor(Math.random() * props.Data.length)
+            var secondRec = Math.floor(Math.random() * props.Recipes.length)
 
             if(secondRec != firstRec){
                 recArr.push(secondRec)
@@ -27,7 +27,7 @@ function Home(props) {
         same = true;
 
         while(same){
-            var thirdRec = Math.floor(Math.random() * props.Data.length)
+            var thirdRec = Math.floor(Math.random() * props.Recipes.length)
 
             if(thirdRec != firstRec && thirdRec != secondRec){
                 recArr.push(thirdRec)
@@ -47,13 +47,13 @@ function Home(props) {
             <button className="refreshHome" onClick={changeRecipes}><i className="fa fa-refresh" aria-hidden="true"></i></button>
             <div className="homecontainer">
                 <div className="homefood left">
-                    <PriceTable recipe={props.Data[rec1]}/>
+                    <PriceTable recipe={props.Recipes[rec1]}/>
                 </div>
                 <div className="homefood right">
-                    <PriceTable recipe={props.Data[rec2]}/>
+                    <PriceTable recipe={props.Recipes[rec2]}/>
                 </div>
                 <div className="homefood left">
-                    <PriceTable recipe={props.Data[rec3]}/>
+                    <PriceTable recipe={props.Recipes[rec3]}/>
                 </div>
             </div>
         

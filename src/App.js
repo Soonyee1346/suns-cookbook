@@ -28,15 +28,16 @@ function App() {
 
   return (
     <div className="App">
-      <Nav/>
+      <Nav />
       <div className="topdivider"></div>
       <Routes>
-        <Route path="/" element={<Home Recipes={Data.recipes} />}/>
-        <Route path="/Recipes" element={<Recipes Recipes={Data.recipes}/>}/>
-        <Route path="/RecipeMaker" element={<RecipeMaker Count={Data.count}/>}/>
+        <Route path="/" element={<Home Recipes={Data.length > 0 ? Data[0].recipes : []} />}/>
+        <Route path="/Recipes" element={<Recipes Recipes={Data.length > 0 ? Data[0].recipes : []}/>}/>
+        <Route path="/RecipeMaker" element={<RecipeMaker Count={Data.length > 0 && Data[0].count}/>}/>
       </Routes>
     </div>
   );
 }
+//<h1>{Data.length > 0 && Data[0].count}</h1>
 
 export default App;
