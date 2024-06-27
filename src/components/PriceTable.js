@@ -2,7 +2,7 @@ import '../css/tables.css'
 
 function PriceTable(props) {
 
-    const img = `/images/${props.recipe.img}`
+    const img = `/images/${props.recipe?.img || ""}`;
 
     function createTable(ingArray) {
         const rows = [];
@@ -25,7 +25,7 @@ function PriceTable(props) {
     return (
         <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={img}/></a>
         <span className="ingredients">
-        <h2>{props.recipe.name}</h2>
+        <h2>{props.recipe?.name || ""}</h2>
         <table className="priceTable" id="priceTable">
             <thead>
                 <tr>
@@ -34,11 +34,11 @@ function PriceTable(props) {
                 </tr>
             </thead>
             <tbody>
-                {createTable(props.recipe.ingredients)}
+                {createTable(props.recipe?.ingredients || "")}
             </tbody>
         </table>
         <div className="priceLine"></div>
-    </span></>
+        </span></>
     )
 }
 
