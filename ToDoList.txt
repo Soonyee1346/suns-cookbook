@@ -1,0 +1,5 @@
+- Add Remove Recipe function
+- Reload page? after every recipes.json update
+- Work on css
+- Individual recipe pages > Method in recipes? > Route in RecipeTiles & Home
+- Images for RecipeMaker?
