@@ -1,22 +1,51 @@
 import '../css/Home.css';
 import PriceTable from '../components/PriceTable.js';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+    let shuffleCount = 0;
+  
+    //We only need the first 3
+    while (shuffleCount < 3) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+      shuffleCount++
+    }
+  
+    return array;
+}
 
 function Home(props) {
-    const [rec1, setRec1] = useState(0)
-    const [rec2, setRec2] = useState(1)
-    const [rec3, setRec3] = useState(2)
+    const [rec1, setRec1] = useState(null)
+    const [rec2, setRec2] = useState(null)
+    const [rec3, setRec3] = useState(null)
+    const length = props.Recipes.length
+
+    useEffect(() => {
+        // Create an array of indices [0, 1, 2, ..., length-1]
+        const indices = Array.from({ length }, (_, i) => i);
+        const shuffledIndices = shuffle(indices);
+    
+        // Set states based on the shuffled indices
+        setRec1(shuffledIndices[0]);
+        setRec2(shuffledIndices[1]);
+        setRec3(shuffledIndices[2]);
+      }, [length]);
 
     function changeRecipes() {
         var recArr = []
         var same = true;
 
-        var firstRec = Math.floor(Math.random() * props.Recipes.length)
+        var firstRec = Math.floor(Math.random() * length)
 
         recArr.push(firstRec)
 
         while(same){
-            var secondRec = Math.floor(Math.random() * props.Recipes.length)
+            var secondRec = Math.floor(Math.random() * length)
 
             if(secondRec != firstRec){
                 recArr.push(secondRec)
@@ -27,7 +56,7 @@ function Home(props) {
         same = true;
 
         while(same){
-            var thirdRec = Math.floor(Math.random() * props.Recipes.length)
+            var thirdRec = Math.floor(Math.random() * length)
 
             if(thirdRec != firstRec && thirdRec != secondRec){
                 recArr.push(thirdRec)
