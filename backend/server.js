@@ -23,10 +23,6 @@ app.get('/recipes.json', (req, res) => {
     });
 });
 
-/*app.get('/App', (req, res) => {
-    res.sendFile(path.join(__dirname, 'recipes.json'));
-});*/
-
 app.post('/RecipeMaker', (req, res) => {
     const newRecipe = req.body;
 
@@ -39,6 +35,7 @@ app.post('/RecipeMaker', (req, res) => {
 
         let recipesData = JSON.parse(data);
 
+        recipesData[0].count = parseInt(recipesData[0].count) + 1;
         let recipes = recipesData[0].recipes
 
         // Append the new recipe

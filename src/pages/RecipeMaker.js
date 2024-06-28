@@ -1,24 +1,18 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function RecipeMaker() {
+function RecipeMaker(props) {
 
     const [ingNum, setIngNum] = useState(1)
     const [recipes, setRecipes] = useState([])
-
+    const count = props.Data && props.Data.length > 0 ? props.Data[0].count : 0;
+    console.log(count)
     useEffect(() => {
-        fetchRecipes();
-    }, [])
-
-    function fetchRecipes() {
-        axios.get('http://localhost:3001/recipes.json')
-            .then(response => {
-                setRecipes(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the recipes', error);
-            });
-    }
+        if (props.Data && props.Data.length > 0) {
+            const { count, recipes } = props.Data[0];
+            setRecipes(recipes);
+        }
+    }, [props.Data]);
 
     function addIng() {
         var currentIng = ingNum + 1
@@ -52,17 +46,15 @@ function RecipeMaker() {
 
         axios.post('http://localhost:3001/RecipeMaker', recipeData)
             .then(response => {
-                fetchRecipes();  // Fetch updated recipes after submission
+                // Optionally fetch updated recipes after submission
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
-
     }
 
     function formatData() {
-        console.log(recipes)
-        const id = "3"
+        const id = count
         const name = document.getElementById("name").value
         const img = "chickenrice.jpg"
         let ingredients = []
