@@ -4,6 +4,6 @@ To Do
 - Add Edit function
 - Work on css (so much to do)
 
-Done
+Finished? Tasks
 - Images for RecipeMaker? Done.
 - Reload page? after every recipes.json update. Done?
