@@ -1,6 +1,9 @@
-- Reload page? after every recipes.json update Done.
+To Do
+- Individual recipe pages > Method in recipes? > Route in RecipeTiles & Home
 - Add Remove Recipe function
 - Add Edit function
-- Work on css
-- Individual recipe pages > Method in recipes? > Route in RecipeTiles & Home
+- Work on css (so much to do)
+
+Done
 - Images for RecipeMaker? Done.
+- Reload page? after every recipes.json update. Done?
