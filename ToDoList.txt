@@ -1,5 +1,8 @@
 To Do
-- Individual recipe pages > Method in recipes? > Route in RecipeTiles & Home
+- Individual recipe pages
+    - Server function that creates multiple pages on upload of recipes
+    - URL in recipes.json
+    - What about Method - Array of strings in recipes.json
 - Add Remove Recipe function
 - Add Edit function
 - Work on css (so much to do)

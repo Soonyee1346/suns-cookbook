@@ -13,8 +13,8 @@ function RecipeTiles(props) {
             const key = `tile${i}`
             row = (
                 //Fix this after you've finished making the Recipe Pages
-                <Link className="box" to="/Recipes/Spaghetti.html" key={key}>
-                        <img src={img} />
+                <Link className="box" to="../pages/Recipe/recipeTemplate" key={key}>
+                        <img src={img} alt={tile.name}/>
                         <h1 className="boxtitle bold">{tile.name}</h1>
                 </Link>
             );

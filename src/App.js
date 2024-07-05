@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js'
 import Recipes from './pages/Recipes.js'
 import RecipeMaker from './pages/RecipeMaker.js';
-//import Data from './data.json'
+import recipeTemplate from './pages/recipeTemplate.js';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -34,10 +34,10 @@ function App() {
         <Route path="/" element={<Home Recipes={Data.length > 0 ? Data[0].recipes : []} />}/>
         <Route path="/Recipes" element={<Recipes Recipes={Data.length > 0 ? Data[0].recipes : []}/>}/>
         <Route path="/RecipeMaker" element={<RecipeMaker Data={Data.length > 0 && Data}/>}/>
+        <Route path="/Recipes/recipeTemplate" element={<recipeTemplate Data={Data.length > 0 && Data}/>}/>
       </Routes>
     </div>
   );
 }
-//<h1>{Data.length > 0 && Data[0].count}</h1>
 
 export default App;
