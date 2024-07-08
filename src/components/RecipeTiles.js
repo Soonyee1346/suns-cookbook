@@ -11,9 +11,9 @@ function RecipeTiles(props) {
             const tile = recipeArr[i];
             const img = `/images/${tile.img}`
             const key = `tile${i}`
+            const linkTo = `/Recipes/${recipeArr[i].name}`
             row = (
-                //Fix this after you've finished making the Recipe Pages
-                <Link className="box" to="../pages/Recipe/recipeTemplate" key={key}>
+                <Link className="box" to={linkTo} key={key}>
                         <img src={img} alt={tile.name}/>
                         <h1 className="boxtitle bold">{tile.name}</h1>
                 </Link>

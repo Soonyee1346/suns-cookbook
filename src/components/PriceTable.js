@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 function PriceTable(props) {
 
     const img = `/images/${props.recipe?.img || ""}`;
+    const linkTo = `/Recipes/${props.recipe?.name || ""}`;
 
     function createTable(ingArray) {
         const rows = [];
@@ -24,7 +25,7 @@ function PriceTable(props) {
     }
 
     return (
-        <><Link className="recipelink" to="/Recipes/Spaghetti"><img src={img} alt="recipeImg"/></Link>
+        <><Link className="recipelink" to={linkTo}><img src={img} alt="recipeImg"/></Link>
         <span className="ingredients">
         <h2>{props.recipe?.name || ""}</h2>
         <table className="priceTable" id="priceTable">
