@@ -1,4 +1,5 @@
 import '../css/tables.css'
+import { Link } from "react-router-dom"
 
 function PriceTable(props) {
 
@@ -23,7 +24,7 @@ function PriceTable(props) {
     }
 
     return (
-        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={img}/></a>
+        <><Link className="recipelink" to="/Recipes/Spaghetti"><img src={img} alt="recipeImg"/></Link>
         <span className="ingredients">
         <h2>{props.recipe?.name || ""}</h2>
         <table className="priceTable" id="priceTable">
