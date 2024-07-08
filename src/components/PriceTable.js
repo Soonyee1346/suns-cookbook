@@ -4,7 +4,8 @@ import { Link } from "react-router-dom"
 function PriceTable(props) {
 
     const img = `/images/${props.recipe?.img || ""}`;
-    const linkTo = `/Recipes/${props.recipe?.name || ""}`;
+    const name = (`${props.recipe?.name || ""}`).replace(/\s+/g, '');
+    const linkTo = `/Recipes/${name}`;
 
     function createTable(ingArray) {
         const rows = [];

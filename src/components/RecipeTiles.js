@@ -11,7 +11,8 @@ function RecipeTiles(props) {
             const tile = recipeArr[i];
             const img = `/images/${tile.img}`
             const key = `tile${i}`
-            const linkTo = `/Recipes/${recipeArr[i].name}`
+            const name = (`${recipeArr[i].name || ""}`).replace(/\s+/g, '');
+            const linkTo = `/Recipes/${name}`
             row = (
                 <Link className="box" to={linkTo} key={key}>
                         <img src={img} alt={tile.name}/>
