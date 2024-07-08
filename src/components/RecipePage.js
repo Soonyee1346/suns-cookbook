@@ -6,7 +6,7 @@ function RecipePage(props) {
 
     return (
         <>
-        <div className="homefood left">
+        <div className="homefood left rPage">
             <PriceTable recipe={props.recipe}></PriceTable>
         </div>
         <span className="methodContainer">

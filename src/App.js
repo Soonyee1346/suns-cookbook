@@ -4,9 +4,10 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js'
 import Recipes from './pages/Recipes.js'
 import RecipeMaker from './pages/RecipeMaker.js';
-import Spaghetti from './pages/Recipe/spaghetti.js';
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import Spaghetti from './pages/Recipe/Spaghetti.js';
+import ChickenRice from './pages/Recipe/Chicken%20Rice.js'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/Recipes" element={<Recipes Recipes={Data.length > 0 ? Data[0].recipes : []}/>}/>
         <Route path="/RecipeMaker" element={<RecipeMaker Data={Data.length > 0 && Data}/>}/>
         <Route path="/Recipes/Spaghetti" element={<Spaghetti Recipe={Data.length > 0 ? Data[0].recipes[0] : []}/>}/>
+        <Route path="/Recipes/Chicken%20Rice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>}/>
       </Routes>
     </div>
   );

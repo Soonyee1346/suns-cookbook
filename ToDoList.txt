@@ -1,8 +1,8 @@
 To Do
 - Individual recipe pages
     - Server function that creates multiple pages on upload of recipes
-    - URL in recipes.json
-    - What about Method - Array of strings in recipes.json
+    - URL in recipes.json Done.
+    - What about Method - Array of strings in recipes.json Done.
 - Add Remove Recipe function
 - Add Edit function
 - Work on css (so much to do)
