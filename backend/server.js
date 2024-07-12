@@ -73,7 +73,7 @@ function formatName(str) {
     return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-function importApp(recipeName, callback) {
+function importApp(recipeName, id, callback) {
     const appPath = path.join(__dirname, `../src/App.js`);
     const name = formatName(recipeName)
     const importStatement = `import ${name} from './pages/Recipe/${recipeName}.js';\n`;
@@ -84,7 +84,7 @@ function importApp(recipeName, callback) {
         }
 
         const newRoute = `
-        <Route path="/Recipes/${recipeName}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[${recipes.length - 1}] : []}/>} />
+        <Route path="/Recipes/${name}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[${id}] : []}/>} />
         `;
 
         // Find the position where to insert the newRoute
@@ -106,17 +106,15 @@ function importApp(recipeName, callback) {
 app.post('/RecipeMaker', upload.single('image'), (req, res) => {
     const newRecipe = JSON.parse(req.body.recipeData);
     newRecipe.img = req.file ? req.file.filename : 'default.jpg';
-    console.log("hi")
 
-
-    newRecipePage(newRecipe.name, (err, newFilePath) => {
+    newRecipePage(newRecipe.name,(err, newFilePath) => {
         if (err) {
             console.error('Error duplicating template:', err);
             return res.status(500).send('Error duplicating template');
         }
 
         
-        importApp(newRecipe.name, (err, newFilePath) => {
+        importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
             if (err) {
                 console.error('Error amending App.js:', err);
                 return res.status(500).send('Error amending App.js');

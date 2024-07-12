@@ -1,17 +1,20 @@
 To Do
+- Add Remove Recipe function
+- Add Edit function
+- Work on css (so much to do)
+ - Going from anything but Home to Recipes ugly
+- Make a Recipe sometimes doesn't work on first go
+- Format of Routes after uploading recipe gets messed up (server)
+
+Finished? Tasks
+- Images for RecipeMaker? Done.
+- Reload page? after every recipes.json update. Done?
 - Individual recipe pages
     - Server function that creates multiple pages on upload of recipes
-        - Update App.js import?? Can it be done?
-            - Add to App.js Import recipe.name from './pages/Recipe/recipe.name.js'
+        - Update App.js import?? Can it be done? Done
+            - Add to App.js Import recipe.name from './pages/Recipe/recipe.name.js' Done
         - Adds Recipe Page based off recipeTemplate Done.
         - Add Recipe Method into RecipeMaker Done.
         - Add Method to Recipe.js Done.
     - URL in recipes.json Done.
     - What about Method - Array of strings in recipes.json Done.
-- Add Remove Recipe function
-- Add Edit function
-- Work on css (so much to do)
-
-Finished? Tasks
-- Images for RecipeMaker? Done.
-- Reload page? after every recipes.json update. Done?
