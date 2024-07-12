@@ -5,7 +5,9 @@ function RecipeMaker(props) {
 
     const [ingNum, setIngNum] = useState(1)
     const [recipes, setRecipes] = useState([])
+    const [methodNum, setmethodNum] = useState(1)
     const count = props.Data && props.Data.length > 0 ? props.Data[0].count : 0;
+
     useEffect(() => {
         if (props.Data && props.Data.length > 0) {
             const { count, recipes } = props.Data[0];
@@ -36,6 +38,22 @@ function RecipeMaker(props) {
         setIngNum(ingNum + 1)
     }
 
+    function addMethod() {
+        var currentMethod = methodNum + 1
+        var methodList = document.getElementById("methodList");
+        var innerDiv = document.createElement('div');
+        innerDiv.id = `meth${currentMethod}`
+
+        var methodInput = document.createElement('input')
+        methodInput.type = "text";
+        methodInput.id=`method${currentMethod}`;
+        methodInput.placeholder="method"
+
+        innerDiv.appendChild(methodInput)
+        methodList.appendChild(innerDiv)
+        setmethodNum(methodNum + 1)
+    }
+
     function handleFileInputClick() {
         document.getElementById('image').click();
     }
@@ -63,17 +81,20 @@ function RecipeMaker(props) {
         const id = count
         const name = document.getElementById("name").value
         let ingredients = []
+        let method = []
         
-        for(let i=1; i < ingNum + 1; i++){
+        for(let i=1; i <= ingNum; i++){
             let ingredient = document.getElementById(`ingredient${i}`).value
             let quantity = document.getElementById(`quantity${i}`).value
-            let ing = {ingredient, quantity}
-            ingredients.push(ing)
+            ingredients.push({ingredient, quantity})
         }
 
-        let recipeData = {id, name, ingredients}
+        for(let i=1; i <= methodNum; i++){
+            let steps = document.getElementById(`method${i}`).value
+            method.push(steps)
+        }
 
-        return recipeData
+        return { id, name, ingredients, method }
     }
 
     return (
@@ -90,7 +111,7 @@ function RecipeMaker(props) {
                         <input type="file" id="image" style={{ display: 'none' }} required />
                         <button type="button" onClick={handleFileInputClick}>Upload Image</button>
                     </div>
-                    <div className="ingredients section">
+                    <div className="ingredientssection">
                         <h3>Ingredients</h3>
                         <div id="ingList">
                             <div id="ing1">
@@ -100,8 +121,17 @@ function RecipeMaker(props) {
                         </div>
                     </div>
                     <button type="button" className="addIng"><i className="fa-solid fa-plus" onClick={addIng}></i></button>
+                    <div className="methodssection">
+                        <h3>Methods</h3>
+                        <div id="methodList">
+                            <div id="meth1">
+                                <input type="text" id="method1" placeholder="method" required />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" className="addMethod"><i className="fa-solid fa-plus" onClick={addMethod}></i></button>
+                    <br></br><br></br>
                     <button className="submit" type="submit">Submit</button>
-                    <div id="data"></div>
                 </div>
             </form>
         </>

@@ -1,6 +1,11 @@
 To Do
 - Individual recipe pages
     - Server function that creates multiple pages on upload of recipes
+        - Update App.js import?? Can it be done?
+            - Add to App.js Import recipe.name from './pages/Recipe/recipe.name.js'
+        - Adds Recipe Page based off recipeTemplate Done.
+        - Add Recipe Method into RecipeMaker Done.
+        - Add Method to Recipe.js Done.
     - URL in recipes.json Done.
     - What about Method - Array of strings in recipes.json Done.
 - Add Remove Recipe function
