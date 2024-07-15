@@ -2,7 +2,9 @@ To Do
 - Add Remove Recipe function
 - Add Edit function
 - Work on css (so much to do)
- - Going from anything but Home to Recipes ugly
+    - Going from anything but Home to Recipes ugly
+    - Fix alignment
+    - Image upload
 - Make a Recipe sometimes doesn't work on first go
 - Format of Routes after uploading recipe gets messed up (server)
 
