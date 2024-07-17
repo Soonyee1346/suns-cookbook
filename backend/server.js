@@ -150,6 +150,51 @@ app.post('/RecipeMaker', upload.single('image'), (req, res) => {
     });
 });
 
+app.post('/api/deleteRecipe', (req,res) => {
+    const { id } = req.body;
+
+    if (!id) {
+        return res.status(400).send({ error: 'Recipe ID is required' });
+    }
+
+    fs.readFile('recipes.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file:', err);
+            res.status(500).send('Error reading the file');
+            return;
+        }
+
+        try {
+            let recipesData = JSON.parse(data);
+            recipesData[0].count = parseInt(recipesData[0].count) - 1;
+            let recipes = recipesData[0].recipes;
+
+            const recipeIndex = recipes.findIndex(recipe => recipe.id === id);
+
+            if (recipeIndex === -1) {
+                return res.status(404).send({ error: 'Recipe not found' });
+            }
+
+            recipes = recipes.filter(recipe => recipe.id !== id);
+            recipesData[0].recipes = recipes
+
+            // Write the updated JSON back to the file
+            fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
+                if (writeErr) {
+                    console.error('Error writing to the file:', writeErr);
+                    res.status(500).send('Error writing to the file');
+                    return;
+                }
+
+                res.send('Recipe removed successfully');
+            })
+        } catch (parseErr) {
+            console.error('Error parsing JSON data:', parseErr);
+            res.status(500).send({ error: 'Error parsing JSON data' });
+        }
+    })
+}) 
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

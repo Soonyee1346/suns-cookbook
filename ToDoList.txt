@@ -7,6 +7,7 @@ To Do
     - Image upload
 - Make a Recipe sometimes doesn't work on first go
 - Format of Routes after uploading recipe gets messed up (server)
+- Move API calls into /api
 
 Finished? Tasks
 - Images for RecipeMaker? Done.

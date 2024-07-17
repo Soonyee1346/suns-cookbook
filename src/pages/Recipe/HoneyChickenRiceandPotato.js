@@ -1,5 +1,5 @@
 import RecipePage from "../../components/RecipePage"
-import '../css/recipePage.css';
+import '../../css/recipePage.css';
 
 function Recipe(props) {
 
