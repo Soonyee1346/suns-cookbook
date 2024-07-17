@@ -11,6 +11,7 @@ To Do
     - Image size changes a lot of things
 - Make a Recipe sometimes doesn't work on first go
 - Format of Routes after uploading recipe gets messed up (server)
+- Remove img, page, anything else when deleting Recipe
 
 Finished? Tasks
 - Images for RecipeMaker? Done.
