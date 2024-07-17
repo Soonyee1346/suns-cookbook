@@ -1,5 +1,7 @@
 To Do
-- Add Remove Recipe function
+- Move ALL API calls into /api
+    - fetchRecipes - BIG ONE
+    - Add Recipe
 - Add Edit function
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
@@ -7,7 +9,6 @@ To Do
     - Image upload
 - Make a Recipe sometimes doesn't work on first go
 - Format of Routes after uploading recipe gets messed up (server)
-- Move API calls into /api
 
 Finished? Tasks
 - Images for RecipeMaker? Done.
@@ -21,3 +22,4 @@ Finished? Tasks
         - Add Method to Recipe.js Done.
     - URL in recipes.json Done.
     - What about Method - Array of strings in recipes.json Done.
+- Add Remove Recipe function done.

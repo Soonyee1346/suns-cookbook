@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const deleteRecipe = async (id) => {
+    console.log("hi", id)
     try {
         const response = await axios.post('http://localhost:3001/api/deleteRecipe', { id }, {
             headers: {
@@ -10,7 +11,7 @@ const deleteRecipe = async (id) => {
         console.log('Recipe deleted successfully:', response.data);
         return response.data;
     } catch (error) {
-        console.error('There was an error deleting the recipe!', error);
+        console.error('Error deleting the recipe:', error);
         throw error;
     }
 };
