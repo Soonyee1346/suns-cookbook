@@ -1,6 +1,6 @@
 [
   {
-    "count": 6,
+    "count": 7,
     "recipes": [
       {
         "id": "0",
@@ -197,6 +197,20 @@
           "1234"
         ],
         "img": "image-1720770013332.jpg"
+      },
+      {
+        "id": 6,
+        "name": "test6",
+        "ingredients": [
+          {
+            "ingredient": "1234",
+            "quantity": "9999"
+          }
+        ],
+        "method": [
+          "99999"
+        ],
+        "img": "image-1721214022889.png"
       }
     ]
   }

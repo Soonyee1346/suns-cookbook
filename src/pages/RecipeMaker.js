@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function RecipeMaker(props) {
 
+    const navigate = useNavigate();
     const [ingNum, setIngNum] = useState(1)
     const [recipes, setRecipes] = useState([])
     const [methodNum, setmethodNum] = useState(1)
@@ -75,6 +77,7 @@ function RecipeMaker(props) {
         .catch(error => {
             console.error('There was an error!', error);
         });
+        navigate('/Recipes')
     }
 
     function formatData() {

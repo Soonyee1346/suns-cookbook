@@ -1,3 +1,4 @@
+import Test6 from './pages/Recipe/test6.js';
 import Test5 from './pages/Recipe/test 5.js';
 import Test4 from './pages/Recipe/test4.js';
 import './css/App.css';
@@ -11,7 +12,7 @@ import ChickenRice from './pages/Recipe/ChickenRice.js'
 import HoneyChicken from './pages/Recipe/HoneyChickenRiceandPotato.js'
 import Test from './pages/Recipe/test.js'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'
 
 function App() {
 
@@ -37,7 +38,9 @@ function App() {
       <div className="topdivider"></div>
       <Routes>
 
-        <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[5] : []}/>} />
+        <Route path="/Recipes/Test6" element={<Test6 Recipe={Data.length > 0 ? Data[0].recipes[6] : []}/>} />
+        
+        <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[5] : []} onDelete={fetchRecipes}/>} />
         
         <Route path="/Recipes/Test4" element={<Test4 Recipe={Data.length > 0 ? Data[0].recipes[4] : []}/>} />
                 <Route path="/" element={<Home Recipes={Data.length > 0 ? Data[0].recipes : []} />}/>

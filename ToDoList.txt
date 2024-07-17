@@ -1,13 +1,14 @@
 To Do
 - Move ALL API calls into /api
-    - fetchRecipes - BIG ONE
-    - Add Recipe
+    - fetchRecipes - Didn't work.
+    - Add Recipe - 
 - Add Edit function
     - Potentially have to create a new page
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment
     - Image upload
+    - Image size changes a lot of things
 - Make a Recipe sometimes doesn't work on first go
 - Format of Routes after uploading recipe gets messed up (server)
 
@@ -23,4 +24,5 @@ Finished? Tasks
         - Add Method to Recipe.js Done.
     - URL in recipes.json Done.
     - What about Method - Array of strings in recipes.json Done.
-- Add Remove Recipe function done.
+- Add Remove Recipe function Done.
+    - Go back to /Recipes using useNavigate Done.

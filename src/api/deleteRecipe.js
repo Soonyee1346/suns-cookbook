@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const deleteRecipe = async (id) => {
-    console.log("hi", id)
     try {
         const response = await axios.post('http://localhost:3001/api/deleteRecipe', { id }, {
             headers: {
