@@ -3,6 +3,7 @@ To Do
     - fetchRecipes - BIG ONE
     - Add Recipe
 - Add Edit function
+    - Potentially have to create a new page
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment

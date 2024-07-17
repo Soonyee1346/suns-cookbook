@@ -1,18 +1,21 @@
-import RecipePage from "../../components/RecipePage"
+import React from 'react';
+import RecipePage from "../../components/RecipePage";
 import '../../css/recipePage.css';
-import deleteRecipe from '../../utils/api'
-
+import deleteRecipe from "../../api/deleteRecipe"; // Import as default
 
 function Recipe(props) {
+    const deleteEvent = async () => {
+        try {
+            await deleteRecipe(props.Recipe.id);
+            
+        } catch (error) {
+            console.error('Error deleting recipe:', error);
+        }
+    };
 
-    function deleteEvent() {
-
-        deleteRecipe(props.Recipe.id)
-    }
-
-    function editRecipe() {
-        
-    }
+    const editRecipe = () => {
+        // Implement edit recipe functionality
+    };
 
     return (
         <>
@@ -28,4 +31,4 @@ function Recipe(props) {
     )
 }
 
-export default Recipe
+export default Recipe;
