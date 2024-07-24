@@ -14,7 +14,7 @@ function Recipe(props) {
     };
 
     const editRecipe = () => {
-        // Implement edit recipe functionality
+        console.log("hi")
     };
 
     return (

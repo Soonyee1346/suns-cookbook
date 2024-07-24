@@ -1,9 +1,12 @@
 To Do
-- Move ALL API calls into /api
+- Move ALL API calls into /api -- Maybe not working
     - fetchRecipes - Didn't work.
     - Add Recipe - ???
 - Add Edit function
-    - Potentially have to create a new page
+    - Create new page similar to AddRecipe
+    - Send formatted data to server.js
+    - Where id = id, replace data
+    - Currently 24/07 - Got page to show but no recipes showing. Fix that.
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment

@@ -2,6 +2,7 @@ import React from 'react';
 import RecipePage from "../../components/RecipePage";
 import '../../css/recipePage.css';
 import deleteRecipe from "../../api/deleteRecipe"; // Import as default
+import { Link } from "react-router-dom"
 
 function Recipe(props) {
     const deleteEvent = async () => {
@@ -13,10 +14,6 @@ function Recipe(props) {
         }
     };
 
-    const editRecipe = () => {
-        // Implement edit recipe functionality
-    };
-
     return (
         <>
             <h1>{props.Recipe.name}</h1>
@@ -24,7 +21,7 @@ function Recipe(props) {
                 <RecipePage recipe={props.Recipe}/>
             </div>
             <div className="buttons">
-                <button className="recipeButton edit" onClick={editRecipe}><i className="fa fa-pen-to-square" aria-hidden="true"></i></button>
+                <Link to={{pathname: `/EditRecipe`, state: {recipe: props.Recipe} }}><button className="recipeButton edit"><i className="fa fa-pen-to-square" aria-hidden="true"></i></button></Link>
                 <button className="recipeButton delete" onClick={deleteEvent}><i className="fa fa-trash-can" aria-hidden="true"></i></button>
             </div>
         </>
