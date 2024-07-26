@@ -1,18 +1,23 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect} from 'react'
 import axios from 'axios'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 function EditRecipe() {
 
-    const location = useLocation();
-    const { recipe } = location.state || {}
+    const { id } = useParams();
+
+    const [recipe, setRecipe] = useState({})    
     const navigate = useNavigate();
     const [ingNum, setIngNum] = useState(0)
     const [methodNum, setmethodNum] = useState(0)
-    const [id, setId] = useState(0)
+    const [imageName, setImage] = useState("")
 
-    const inputExistingInfo = (recipe) => {
+    function inputExistingInfo() {
         var ingList = document.getElementById("ingList");
+        var name = document.getElementById('name');
+        name.value = recipe.name;
+        var img = document.getElementById('outputImg')
+        img.src = `/images/${imageName}`
 
         for(var num = 0; num < ingNum; num++){
             var innerDiv = document.createElement('div');
@@ -31,18 +36,29 @@ function EditRecipe() {
             innerDiv.appendChild(ingInput)
             innerDiv.appendChild(quantityInput)
             ingList.appendChild(innerDiv)
-            console.log("hi")
         }
+
+    }
+
+    function fetchRecipe() {
+        // fetch all recipes
+        axios.get('http://localhost:3001/recipes.json')
+        .then(response => {
+            const foundRecipe = response.data[0].recipes.find(recipe => recipe.id === parseInt(id));
+            setRecipe(foundRecipe)
+            setImage(foundRecipe.img)
+        })
+        .catch(error => {
+          console.error('There was an error fetching the recipe', error);
+        });
     }
 
     useEffect(() => {
-        if (recipe) {
-            setIngNum(recipe.ingredients.length)
-            setmethodNum(recipe.method.length)
-            setId(recipe.id)
-            inputExistingInfo(recipe)
+        if (id) {
+            fetchRecipe();
+            inputExistingInfo();
         }
-    }, [recipe]);
+    }, [id]);
 
     function addIng() {
         var currentIng = ingNum + 1
@@ -128,7 +144,7 @@ function EditRecipe() {
 
     return (
         <>
-            <h1>RecipeMaker</h1>
+            <h1>Edit {recipe.name}</h1>
             <form onSubmit={submitRecipe}>
                 <div className="container">
                     <div className="name section">
@@ -138,7 +154,8 @@ function EditRecipe() {
                     <div className="image section">
                         <h3>Recipe Image</h3>
                         <input type="file" id="image" style={{ display: 'none' }} required />
-                        <button type="button" onClick={handleFileInputClick}>Upload Image</button>
+                        <button type="button" onClick={handleFileInputClick}>Change Image</button>
+                        <br></br><img id="outputImg"></img>
                     </div>
                     <div className="ingredientssection">
                         <h3>Ingredients</h3>

@@ -10,7 +10,7 @@ import RecipeMaker from './pages/RecipeMaker.js';
 import Spaghetti from './pages/Recipe/Spaghetti.js';
 import ChickenRice from './pages/Recipe/ChickenRice.js'
 import HoneyChicken from './pages/Recipe/HoneyChickenRiceandPotato.js'
-import EditRecipe from './pages/EditRecipe.js'
+import EditRecipe from './pages/EditRecipe';
 import Test from './pages/Recipe/test.js'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
@@ -48,7 +48,7 @@ function App() {
         <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>}/>
         <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChicken Recipe={Data.length > 0 ? Data[0].recipes[2] : []}/>}/>
         <Route path="/Recipes/test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[3] : []}/>}/>
-        <Route path="/EditRecipe" element={<EditRecipe></EditRecipe>} />
+        <Route path="/EditRecipe/:id" element={<EditRecipe></EditRecipe>} />
       </Routes>
     </div>
   );

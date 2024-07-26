@@ -6,7 +6,7 @@ To Do
     - Create new page similar to AddRecipe
     - Send formatted data to server.js
     - Where id = id, replace data
-    - Currently 24/07 - Got page to show but no recipes showing. Fix that.
+    - Finished up to Images. Do the Ingredients and Methods
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment
