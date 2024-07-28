@@ -48,7 +48,7 @@ function EditRecipe() {
             var methodInput = document.createElement('input')
             methodInput.type = "text";
             methodInput.id=`method${currentMethod}`;
-            methodInput.value = recipe.method[0]
+            methodInput.value = recipe.method[num1]
     
             innerDiv.appendChild(methodInput)
             methodList.appendChild(innerDiv)
