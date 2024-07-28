@@ -2,11 +2,6 @@ To Do
 - Move ALL API calls into /api -- Maybe not working
     - fetchRecipes - Didn't work.
     - Add Recipe - ???
-- Add Edit function
-    - Create new page similar to AddRecipe
-    - Send formatted data to server.js
-    - Where id = id, replace data
-    - Finished up to Images. Do the Ingredients and Methods
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment
@@ -30,3 +25,9 @@ Finished? Tasks
     - What about Method - Array of strings in recipes.json Done.
 - Add Remove Recipe function Done.
     - Go back to /Recipes using useNavigate Done.
+- Add Edit function
+    - Create new page similar to AddRecipe Done.
+    - Send formatted data to server.js Done.
+    - Where id = id, replace data Done.
+    - Finished up to Images. Do the Ingredients and Methods Done.
+    - Create Edit Function in Server.js Done.
