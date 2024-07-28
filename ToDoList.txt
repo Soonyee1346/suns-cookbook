@@ -8,8 +8,9 @@ To Do
     - Image upload
     - Image size changes a lot of things
 - Make a Recipe sometimes doesn't work on first go
-- Format of Routes after uploading recipe gets messed up (server)
 - Remove img, page, anything else when deleting Recipe
+    - Copy EditRecipe function in server.js
+- Improve RecipeMaker like you did Edit Recipe
 
 Finished? Tasks
 - Images for RecipeMaker? Done.
@@ -31,3 +32,4 @@ Finished? Tasks
     - Where id = id, replace data Done.
     - Finished up to Images. Do the Ingredients and Methods Done.
     - Create Edit Function in Server.js Done.
+- Format of Routes after uploading recipe gets messed up (server) Done.
