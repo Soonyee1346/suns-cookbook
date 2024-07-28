@@ -91,15 +91,17 @@ function EditRecipe() {
         innerDiv.id = `ing${currentIng}`
 
         var ingInput = document.createElement('input')
-        ingInput.type = "text";
-        ingInput.id=`ingredient${currentIng}`;
-        ingInput.placeholder="ingredient"
+        ingInput.type =  "text";
+        ingInput.id = `ingredient${currentIng}`;
+        ingInput.placeholder = "ingredient";
+        ingInput.required = true;
 
 
         var quantityInput = document.createElement('input')
         quantityInput.type = "text";
         quantityInput.id=`quantity${currentIng}`;
         quantityInput.placeholder="quantity"
+        quantityInput.required = true;
 
         innerDiv.appendChild(ingInput)
         innerDiv.appendChild(quantityInput)
@@ -117,6 +119,7 @@ function EditRecipe() {
         methodInput.type = "text";
         methodInput.id=`method${currentMethod}`;
         methodInput.placeholder="method"
+        methodInput.required = true;
 
         innerDiv.appendChild(methodInput)
         methodList.appendChild(innerDiv)
@@ -176,7 +179,6 @@ function EditRecipe() {
     
             let steps = methodElement.value;
             method.push(steps);
-            console.log(methodNum)
         }
 
         return { id, name, ingredients, method }
