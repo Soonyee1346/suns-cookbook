@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import '../css/recipeMaker.css';
 
 function EditRecipe() {
 
@@ -181,6 +182,19 @@ function EditRecipe() {
         return { id, name, ingredients, method }
     }
 
+    function handleFileInputChange(event) {
+        const imageFile = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            document.getElementById('outputImg').src = e.target.result;
+        }
+
+        if (imageFile) {
+            reader.readAsDataURL(imageFile);
+        }
+    }
+
     return (
         <>
             <h1>Edit {recipe.name}</h1>
@@ -192,9 +206,9 @@ function EditRecipe() {
                     </div>
                     <div className="image section">
                         <h3>Recipe Image</h3>
-                        <input type="file" id="image" style={{ display: 'none' }} />
+                        <input type="file" id="image" style={{ display: 'none' }} onChange={handleFileInputChange}/>
                         <button type="button" onClick={handleFileInputClick}>Change Image</button>
-                        <br></br><img id="outputImg"></img>
+                        <br></br><img className="fileImg" id="outputImg"></img>
                     </div>
                     <div className="ingredientssection">
                         <h3>Ingredients</h3>
