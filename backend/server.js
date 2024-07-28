@@ -133,14 +133,14 @@ function removeOldImportAndFile(id, callback) {
                     return callback(writeErr);
                 }
 
-                /*// Delete the old file
+                // Delete the old file
                 fs.unlink(oldFilePath, (unlinkErr) => {
                     if (unlinkErr && unlinkErr.code !== 'ENOENT') {
                         return callback(unlinkErr);
                     }
 
                     callback(null);
-                });*/
+                });
             });
         });
     });
@@ -203,14 +203,14 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
             return res.status(500).send('Error removing old import and file');
         }
 
-        /*newRecipePage(newRecipe.name,(err, newFilePath) => {
+        newRecipePage(newRecipe.name,(err, newFilePath) => {
             if (err) {
                 console.error('Error duplicating template:', err);
                 return res.status(500).send('Error duplicating template');
             }
 
             
-            importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
+            /*importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
                 if (err) {
                     console.error('Error amending App.js:', err);
                     return res.status(500).send('Error amending App.js');
@@ -248,8 +248,8 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
                         res.send('Recipe edited successfully');
                     });
                 });
-            });
-        });*/
+            });*/
+        });
     });
 });
 
