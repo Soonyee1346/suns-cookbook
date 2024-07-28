@@ -83,17 +83,17 @@ function importApp(recipeName, id, callback) {
             return callback(err);
         }
 
-        const newRoute = `
-        <Route path="/Recipes/${name}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[${id}] : []}/>} />
-        `;
+        const newRoute = `<Route path="/Recipes/${name}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[${id}] : []}/>} />`;
 
         // Find the position where to insert the newRoute
         const routesIndex = data.indexOf('<Routes>');
         const insertionIndex = data.indexOf('\n', routesIndex) + 1;
 
         // Insert the newRoute
-        const updatedContent = importStatement + data.slice(0, insertionIndex) + newRoute + data.slice(insertionIndex);
-
+        const beforeInsertion = data.slice(0, insertionIndex);
+        const afterInsertion = data.slice(insertionIndex);
+        const updatedContent = importStatement + beforeInsertion + '        ' + newRoute.trim() + '\n' + afterInsertion;
+        
         fs.writeFile(appPath, updatedContent, 'utf8', (writeErr) => {
             if (writeErr) {
                 return callback(writeErr);
@@ -142,6 +142,40 @@ function removeOldImportAndFile(id, callback) {
                     callback(null);
                 });
             });
+        });
+    });
+}
+
+function EditRecipe(newRecipe, callback) {
+    fs.readFile('recipes.json', 'utf8', (err, data) => {
+        if (err) {
+            return callback(err)
+        }
+
+        let recipesData = JSON.parse(data);
+
+        let recipes = recipesData[0].recipes;
+
+        const recipeIndex = recipes.findIndex(recipe => parseInt(recipe.id) === newRecipe.id);
+
+        if (recipeIndex === -1){
+            return callback('Recipe not found');
+        }
+
+        // Append the new recipe
+        recipes[recipeIndex] = newRecipe;
+
+        // Write the updated JSON back to the file
+        fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
+            
+            if (writeErr) {
+                console.error('Error ammending Recipe:', writeErr);
+                return callback('Error ammending recipes.json');
+            }
+            else {
+                console.log('recipes.json ammended')
+                callback(null);
+            }
         });
     });
 }
@@ -196,6 +230,7 @@ app.post('/RecipeMaker', upload.single('image'), (req, res) => {
 app.post('/EditRecipe', upload.single('image'), (req, res) => {
     const newRecipe = JSON.parse(req.body.recipeData);
     newRecipe.img = req.file ? req.file.filename : req.body.existingImage;
+    newRecipe.id = parseInt(newRecipe.id)
 
     removeOldImportAndFile(newRecipe.id, (err) => {
         if (err) {
@@ -210,45 +245,19 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
             }
 
             
-            /*importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
+            importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
                 if (err) {
                     console.error('Error amending App.js:', err);
                     return res.status(500).send('Error amending App.js');
                 }
 
-                fs.readFile('recipes.json', 'utf8', (err, data) => {
+                EditRecipe(newRecipe, (err) => {
                     if (err) {
-                        console.error('Error reading the file:', err);
-                        res.status(500).send('Error reading the file');
-                        return;
+                        console.error('Error ammending Recipe:', err);
+                        return res.status(500).send('Error ammending Recipe');
                     }
-
-                    let recipesData = JSON.parse(data);
-
-                    recipesData[0].count = parseInt(recipesData[0].count);
-                    let recipes = recipesData[0].recipes;
-
-                    const recipeIndex = recipes.findIndex(recipe => recipe.id === newRecipe.id);
-
-                    if (recipeIndex === -1){
-                        return res.status(404).send('Recipe not found');
-                    }
-
-                    // Append the new recipe
-                    recipes[recipeIndex] = newRecipe;
-
-                    // Write the updated JSON back to the file
-                    fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
-                        if (writeErr) {
-                            console.error('Error writing to the file:', writeErr);
-                            res.status(500).send('Error writing to the file');
-                            return;
-                        }
-
-                        res.send('Recipe edited successfully');
-                    });
                 });
-            });*/
+            });
         });
     });
 });

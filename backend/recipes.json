@@ -205,10 +205,15 @@
           {
             "ingredient": "1234",
             "quantity": "9999"
+          },
+          {
+            "ingredient": "2222",
+            "quantity": "2222"
           }
         ],
         "method": [
-          "99999"
+          "999993",
+          "999993"
         ],
         "img": "image-1721214022889.png"
       }
