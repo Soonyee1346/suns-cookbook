@@ -11,6 +11,7 @@ function EditRecipe() {
     const [ingNum, setIngNum] = useState(0)
     const [methodNum, setmethodNum] = useState(0)
     const [imageName, setImage] = useState("")
+    const [isPopulated, setIsPopulated] = useState(false);
 
     function inputExistingInfo() {
         var ingList = document.getElementById("ingList");
@@ -38,27 +39,49 @@ function EditRecipe() {
             ingList.appendChild(innerDiv)
         }
 
+        for(var num1 = 0; num1 < methodNum; num1++){
+            var currentMethod = num1 + 1
+            var methodList = document.getElementById("methodList");
+            var innerDiv = document.createElement('div');
+            innerDiv.id = `meth${currentMethod}`
+    
+            var methodInput = document.createElement('input')
+            methodInput.type = "text";
+            methodInput.id=`method${currentMethod}`;
+            methodInput.value = recipe.method[0]
+    
+            innerDiv.appendChild(methodInput)
+            methodList.appendChild(innerDiv)
+            setmethodNum(currentMethod)
+        }
+
     }
 
-    function fetchRecipe() {
-        // fetch all recipes
-        axios.get('http://localhost:3001/recipes.json')
-        .then(response => {
+    async function fetchRecipe() {
+        try {
+            const response = await axios.get('http://localhost:3001/recipes.json');
             const foundRecipe = response.data[0].recipes.find(recipe => recipe.id === parseInt(id));
-            setRecipe(foundRecipe)
-            setImage(foundRecipe.img)
-        })
-        .catch(error => {
-          console.error('There was an error fetching the recipe', error);
-        });
+            setRecipe(foundRecipe);
+            setImage(foundRecipe.img);
+            setIngNum(foundRecipe.ingredients.length);
+            setmethodNum(foundRecipe.method.length);
+        } catch (error) {
+            console.error('There was an error fetching the recipe', error);
+        }
     }
 
     useEffect(() => {
         if (id) {
             fetchRecipe();
-            inputExistingInfo();
         }
     }, [id]);
+
+    useEffect(() => {
+        if (Object.keys(recipe).length !== 0 && !isPopulated) {
+            inputExistingInfo();
+            setIsPopulated(true);
+        }
+    }, [recipe]);
 
     function addIng() {
         var currentIng = ingNum + 1
@@ -103,13 +126,21 @@ function EditRecipe() {
         document.getElementById('image').click();
     }
 
-    function submitRecipe() {
+    function submitRecipe(event) {
+        event.preventDefault();
         var recipeData = formatData();
         const formData = new FormData();
-        formData.append('image', document.getElementById('image').files[0]);
+        const imageFile = document.getElementById('image').files[0];
+
+        if (imageFile) {
+            formData.append('image', imageFile);
+        } else {
+            formData.append('existingImage', imageName);
+        }
+
         formData.append('recipeData', JSON.stringify(recipeData));
 
-        axios.post('http://localhost:3001/RecipeMaker', formData, {
+        axios.post('http://localhost:3001/EditRecipe', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -135,8 +166,16 @@ function EditRecipe() {
         }
 
         for(let i=1; i <= methodNum; i++){
-            let steps = document.getElementById(`method${i}`).value
-            method.push(steps)
+            const methodElement = document.getElementById(`method${i}`);
+
+            if (!methodElement) {
+                console.error(`Element with ID 'method${i}' not found`);
+                continue;
+            }
+    
+            let steps = methodElement.value;
+            method.push(steps);
+            console.log(methodNum)
         }
 
         return { id, name, ingredients, method }
@@ -153,7 +192,7 @@ function EditRecipe() {
                     </div>
                     <div className="image section">
                         <h3>Recipe Image</h3>
-                        <input type="file" id="image" style={{ display: 'none' }} required />
+                        <input type="file" id="image" style={{ display: 'none' }} />
                         <button type="button" onClick={handleFileInputClick}>Change Image</button>
                         <br></br><img id="outputImg"></img>
                     </div>

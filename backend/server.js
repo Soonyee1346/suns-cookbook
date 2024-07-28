@@ -103,6 +103,46 @@ function importApp(recipeName, id, callback) {
     })
 }
 
+function removeOldImportAndFile(id, callback) {
+    fs.readFile('recipes.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file:', err);
+            res.status(500).send('Error reading the file');
+            return;
+        }
+
+        let recipesData = JSON.parse(data);
+        let recipe = recipesData[0].recipes.find(recipe => recipe.id === parseInt(id));
+        let name = recipe.name;
+        const formattedName = formatName(recipe.name);
+        const appPath = path.join(__dirname, `../src/App.js`);
+        const oldFilePath = path.join(__dirname, `../src/pages/Recipe/${recipe.name}.js`);
+
+        //remove Import Statement
+        const importRegex = new RegExp(`import ${formattedName} from './pages/Recipe/${name}.js';\\n`, 'g');
+        const updatedContent = data.replace(importRegex, '');
+
+        // Remove the old route
+        const routeRegex = new RegExp(`<Route path="/Recipes/${formattedName}"[^>]*></Route>\\n`, 'g');
+        const finalContent = updatedContent.replace(routeRegex, '');
+
+        fs.writeFile(appPath, finalContent, 'utf8', (writeErr) => {
+            if (writeErr) {
+                return callback(writeErr);
+            }
+
+            // Delete the old file
+            fs.unlink(oldFilePath, (unlinkErr) => {
+                if (unlinkErr && unlinkErr.code !== 'ENOENT') {
+                    return callback(unlinkErr);
+                }
+
+                callback(null);
+            });
+        });
+    });
+}
+
 app.post('/RecipeMaker', upload.single('image'), (req, res) => {
     const newRecipe = JSON.parse(req.body.recipeData);
     newRecipe.img = req.file ? req.file.filename : 'default.jpg';
@@ -144,6 +184,66 @@ app.post('/RecipeMaker', upload.single('image'), (req, res) => {
                     }
 
                     res.send('Recipe added successfully');
+                });
+            });
+        });
+    });
+});
+
+app.post('/EditRecipe', upload.single('image'), (req, res) => {
+    const newRecipe = JSON.parse(req.body.recipeData);
+    newRecipe.img = req.file ? req.file.filename : req.body.existingImage;
+
+    removeOldImportAndFile(newRecipe.id, (err) => {
+        if (err) {
+            console.error('Error removing old import and file:', err);
+            return res.status(500).send('Error removing old import and file');
+        }
+
+        newRecipePage(newRecipe.name,(err, newFilePath) => {
+            if (err) {
+                console.error('Error duplicating template:', err);
+                return res.status(500).send('Error duplicating template');
+            }
+
+            
+            importApp(newRecipe.name, newRecipe.id, (err, newFilePath) => {
+                if (err) {
+                    console.error('Error amending App.js:', err);
+                    return res.status(500).send('Error amending App.js');
+                }
+
+                fs.readFile('recipes.json', 'utf8', (err, data) => {
+                    if (err) {
+                        console.error('Error reading the file:', err);
+                        res.status(500).send('Error reading the file');
+                        return;
+                    }
+
+                    let recipesData = JSON.parse(data);
+
+                    recipesData[0].count = parseInt(recipesData[0].count);
+                    let recipes = recipesData[0].recipes;
+
+                    const recipeIndex = recipes.findIndex(recipe => recipe.id === newRecipe.id);
+
+                    if (recipeIndex === -1){
+                        return res.status(404).send('Recipe not found');
+                    }
+
+                    // Append the new recipe
+                    recipes[recipeIndex] = newRecipe;
+
+                    // Write the updated JSON back to the file
+                    fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
+                        if (writeErr) {
+                            console.error('Error writing to the file:', writeErr);
+                            res.status(500).send('Error writing to the file');
+                            return;
+                        }
+
+                        res.send('Recipe added successfully');
+                    });
                 });
             });
         });
