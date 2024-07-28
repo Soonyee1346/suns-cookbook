@@ -114,30 +114,33 @@ function removeOldImportAndFile(id, callback) {
         let recipesData = JSON.parse(data);
         let recipe = recipesData[0].recipes.find(recipe => recipe.id === parseInt(id));
         let name = recipe.name;
-        const formattedName = formatName(recipe.name);
+        const formattedName = formatName(name);
         const appPath = path.join(__dirname, `../src/App.js`);
         const oldFilePath = path.join(__dirname, `../src/pages/Recipe/${recipe.name}.js`);
-
-        //remove Import Statement
-        const importRegex = new RegExp(`import ${formattedName} from './pages/Recipe/${name}.js';\\n`, 'g');
-        const updatedContent = data.replace(importRegex, '');
-
-        // Remove the old route
-        const routeRegex = new RegExp(`<Route path="/Recipes/${formattedName}"[^>]*></Route>\\n`, 'g');
-        const finalContent = updatedContent.replace(routeRegex, '');
-
-        fs.writeFile(appPath, finalContent, 'utf8', (writeErr) => {
-            if (writeErr) {
-                return callback(writeErr);
+        
+        fs.readFile(appPath, 'utf8', (err, appData) => {
+            if (err) {
+                return callback(err);
             }
 
-            // Delete the old file
-            fs.unlink(oldFilePath, (unlinkErr) => {
-                if (unlinkErr && unlinkErr.code !== 'ENOENT') {
-                    return callback(unlinkErr);
+            //remove Import and Route Statement
+            const importRoute = `import ${formattedName} from './pages/Recipe/${name}.js';`
+            const oldRoute = `<Route path="/Recipes/${formattedName}" element={<${formattedName} Recipe={Data.length > 0 ? Data[0].recipes[${id}] : []}/>} />`
+            const updatedContent = appData.split('\n').filter(line => line.trim() !== importRoute.trim() && line.trim() !== oldRoute.trim()).join('\n');
+
+            fs.writeFile(appPath, updatedContent, 'utf8', (writeErr) => {
+                if (writeErr) {
+                    return callback(writeErr);
                 }
 
-                callback(null);
+                /*// Delete the old file
+                fs.unlink(oldFilePath, (unlinkErr) => {
+                    if (unlinkErr && unlinkErr.code !== 'ENOENT') {
+                        return callback(unlinkErr);
+                    }
+
+                    callback(null);
+                });*/
             });
         });
     });
@@ -200,7 +203,7 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
             return res.status(500).send('Error removing old import and file');
         }
 
-        newRecipePage(newRecipe.name,(err, newFilePath) => {
+        /*newRecipePage(newRecipe.name,(err, newFilePath) => {
             if (err) {
                 console.error('Error duplicating template:', err);
                 return res.status(500).send('Error duplicating template');
@@ -242,11 +245,11 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
                             return;
                         }
 
-                        res.send('Recipe added successfully');
+                        res.send('Recipe edited successfully');
                     });
                 });
             });
-        });
+        });*/
     });
 });
 
