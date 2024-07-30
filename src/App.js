@@ -2,9 +2,9 @@ import Test6 from './pages/Recipe/Test6.js';
 import Test5 from './pages/Recipe/Test5.js';
 import Test4 from './pages/Recipe/Test4.js';
 import Test from './pages/Recipe/Test.js';
-import Spaghetti from './pages/Recipe/Spaghetti.js';
 import ChickenRice from './pages/Recipe/ChickenRice.js';
 import HoneyChicken from './pages/Recipe/HoneyChickenRiceandPotato.js';
+import Spaghetti from './pages/Recipe/Spaghetti.js';
 import './css/App.css';
 import Nav from './components/Nav.js';
 import { Routes, Route } from 'react-router-dom';
@@ -38,13 +38,13 @@ function App() {
       <Nav />
       <div className="topdivider"></div>
       <Routes>
-        <Route path="/Recipes/Test6" element={<Test6 Recipe={Data.length > 0 ? Data[0].recipes[6] : []}/>} />
-        <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[5] : []}/>} />
-        <Route path="/Recipes/Test4" element={<Test4 Recipe={Data.length > 0 ? Data[0].recipes[4] : []}/>} />
-        <Route path="/Recipes/Test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[3] : []}/>} />
-        <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChicken Recipe={Data.length > 0 ? Data[0].recipes[2] : []}/>} />
-        <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>} />
-        <Route path="/Recipes/Spaghetti" element={<Spaghetti Recipe={Data.length > 0 ? Data[0].recipes[0] : []}/>} />
+        <Route path="/Recipes/Test6" element={<Test6 Recipe={Data.length > 0 ? Data[0].recipes[7] : []}/>} />
+        <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[6] : []}/>} />
+        <Route path="/Recipes/Test4" element={<Test4 Recipe={Data.length > 0 ? Data[0].recipes[5] : []}/>} />
+        <Route path="/Recipes/Test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[4] : []}/>} />
+        <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChicken Recipe={Data.length > 0 ? Data[0].recipes[3] : []}/>} />
+        <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[2] : []}/>} />
+        <Route path="/Recipes/Spaghetti" element={<Spaghetti Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>} />
         <Route path="/" element={<Home Recipes={Data.length > 0 ? Data[0].recipes : []} />}/>
         <Route path="/Recipes" element={<Recipes Recipes={Data.length > 0 ? Data[0].recipes : []}/>}/>
         <Route path="/RecipeMaker" element={<RecipeMaker Data={Data.length > 0 && Data}/>}/>
