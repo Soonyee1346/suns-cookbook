@@ -1,4 +1,7 @@
 To Do
+- Delete Recipe
+    - Using Array of Data
+        - Use array search by ID on App.js
 - Improve RecipeMaker like you did Edit Recipe
 - Make a Recipe sometimes doesn't work on first go
 - Move ALL API calls into /api -- Maybe not working
