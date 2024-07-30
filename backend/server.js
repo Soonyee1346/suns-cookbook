@@ -111,6 +111,8 @@ function removeOldImportAndFile(id, deleteOldImage, callback) {
             res.status(500).send('Error reading the file');
             return;
         }
+
+        console.log("made it")
  
         let recipesData = JSON.parse(data);
         let recipe = recipesData[0].recipes.find(recipe => recipe.id === parseInt(id));

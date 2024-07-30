@@ -81,7 +81,7 @@ function RecipeMaker(props) {
     }
 
     function formatData() {
-        const id = count
+        const id = count + 1
         const name = document.getElementById("name").value
         let ingredients = []
         let method = []
