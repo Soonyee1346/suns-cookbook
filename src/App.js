@@ -41,13 +41,13 @@ function App() {
         <Route path="/Recipes/Test6" element={<Test6 Recipe={Data.length > 0 ? Data[0].recipes[6] : []}/>} />
         <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[5] : []}/>} />
         <Route path="/Recipes/Test4" element={<Test4 Recipe={Data.length > 0 ? Data[0].recipes[4] : []}/>} />
+        <Route path="/Recipes/Test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[3] : []}/>} />
+        <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChicken Recipe={Data.length > 0 ? Data[0].recipes[2] : []}/>}/>
+        <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>}/>
+        <Route path="/Recipes/Spaghetti" element={<Spaghetti Recipe={Data.length > 0 ? Data[0].recipes[0] : []}/>}/>
         <Route path="/" element={<Home Recipes={Data.length > 0 ? Data[0].recipes : []} />}/>
         <Route path="/Recipes" element={<Recipes Recipes={Data.length > 0 ? Data[0].recipes : []}/>}/>
         <Route path="/RecipeMaker" element={<RecipeMaker Data={Data.length > 0 && Data}/>}/>
-        <Route path="/Recipes/Spaghetti" element={<Spaghetti Recipe={Data.length > 0 ? Data[0].recipes[0] : []}/>}/>
-        <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[1] : []}/>}/>
-        <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChicken Recipe={Data.length > 0 ? Data[0].recipes[2] : []}/>}/>
-        <Route path="/Recipes/Test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[3] : []}/>}/>
         <Route path="/EditRecipe/:id" element={<EditRecipe></EditRecipe>} />
       </Routes>
     </div>
