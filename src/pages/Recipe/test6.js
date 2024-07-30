@@ -3,29 +3,23 @@ import RecipePage from "../../components/RecipePage";
 import '../../css/recipePage.css';
 import deleteRecipe from "../../api/deleteRecipe"; // Import as default
 import { Link, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
 
 function Recipe(props) {
 
     const navigate = useNavigate();
-    const [shouldNavigate, setShouldNavigate] = useState(false);
 
     const recipeId = props.Recipe ? props.Recipe.id : '3';
 
     const deleteEvent = async () => {
         try {
-            await deleteRecipe(props.Recipe.id);
-            setShouldNavigate(true);
+            await Promise.all([
+                navigate('/Recipes'),
+                deleteRecipe(props.Recipe.id)
+            ]);
         } catch (error) {
             console.error('Error deleting recipe:', error);
         }
     };
-
-    useEffect(() => {
-        if (shouldNavigate) {
-            navigate('/Recipes');
-        }
-    }, [shouldNavigate, navigate]);
 
     return (
         <>
