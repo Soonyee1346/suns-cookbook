@@ -1,7 +1,7 @@
-import Test6 from './pages/Recipe/test6.js';
-import Test5 from './pages/Recipe/test 5.js';
-import Test4 from './pages/Recipe/test4.js';
-import Test from './pages/Recipe/test.js';
+import Test6 from './pages/Recipe/Test6.js';
+import Test5 from './pages/Recipe/Test5.js';
+import Test4 from './pages/Recipe/Test4.js';
+import Test from './pages/Recipe/Test.js';
 import Spaghetti from './pages/Recipe/Spaghetti.js';
 import ChickenRice from './pages/Recipe/ChickenRice.js';
 import HoneyChicken from './pages/Recipe/HoneyChickenRiceandPotato.js';
