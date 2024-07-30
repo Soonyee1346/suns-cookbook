@@ -53,9 +53,15 @@ function checkFileType(file, cb) {
     }
 }
 
-function newRecipePage(fileName, callback) {
+function formatName(str) {
+    var name = (`${str || ""}`).replace(/\s+/g, '');
+    return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+function newRecipePage(recipeName, callback) {
     const templatePath = path.join(__dirname, '../src/pages/Recipe/RecipeTemplate.js');
-    const pagePath = path.join(__dirname, `../src/pages/Recipe/${fileName}.js`);
+    const fileName = formatName(recipeName);
+    const pagePath = path.join(__dirname, `../src/pages/Recipe/${fileName.js}`);
 
     fs.copyFile(templatePath, pagePath, (err) => {
         if (err) {
@@ -68,15 +74,10 @@ function newRecipePage(fileName, callback) {
     });
 }
 
-function formatName(str) {
-    var name = (`${str || ""}`).replace(/\s+/g, '');
-    return name.charAt(0).toUpperCase() + name.slice(1);
-}
-
 function importApp(recipeName, id, callback) {
     const appPath = path.join(__dirname, `../src/App.js`);
     const name = formatName(recipeName)
-    const importStatement = `import ${name} from './pages/Recipe/${recipeName}.js';\n`;
+    const importStatement = `import ${name} from './pages/Recipe/${name}.js';\n`;
 
     fs.readFile(appPath, 'utf8', (err, data) => {
         if (err) {
@@ -117,7 +118,7 @@ function removeOldImportAndFile(id, deleteOldImage, callback) {
         let oldImage = recipe.img
         const formattedName = formatName(name);
         const appPath = path.join(__dirname, `../src/App.js`);
-        const oldFilePath = path.join(__dirname, `../src/pages/Recipe/${recipe.name}.js`);
+        const oldFilePath = path.join(__dirname, `../src/pages/Recipe/${formattedName}.js`);
         
         fs.readFile(appPath, 'utf8', (err, appData) => {
             if (err) {
@@ -125,7 +126,7 @@ function removeOldImportAndFile(id, deleteOldImage, callback) {
             }
 
             //remove Import and Route Statement
-            const importRoute = `import ${formattedName} from './pages/Recipe/${name}.js';`
+            const importRoute = `import ${formattedName} from './pages/Recipe/${formattedName}.js';`
             const oldRoute = `<Route path="/Recipes/${formattedName}" element={<${formattedName} Recipe={Data.length > 0 ? Data[0].recipes[${id}] : []}/>} />`
             const updatedContent = appData.split('\n').filter(line => line.trim() !== importRoute.trim() && line.trim() !== oldRoute.trim()).join('\n');
 
