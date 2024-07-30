@@ -191,6 +191,44 @@ function EditRecipe(newRecipe, callback) {
     });
 }
 
+function removeRecipe (deleteId, callback) {
+    fs.readFile('recipes.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the file:', err);
+            res.status(500).send('Error reading the file');
+            return;
+        }
+
+        try {
+            let recipesData = JSON.parse(data);
+            recipesData[0].count = parseInt(recipesData[0].count) - 1;
+            let recipes = recipesData[0].recipes;
+
+            const recipeIndex = recipes.findIndex(recipe => recipe.id === deleteId);
+
+            if (recipeIndex === -1) {
+                return res.status(404).send({ error: 'Recipe not found' });
+            }
+
+            recipes = recipes.filter(recipe => recipe.id !== deleteId);
+            recipesData[0].recipes = recipes
+
+            // Write the updated JSON back to the file
+            fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
+                if (writeErr) {
+                    console.error('Error deleting recipe from recipes:', writeErr);
+                    callback('Error deleting recipe from recipes');
+                    return;
+                }
+                callback(null)
+            })
+        } catch (parseErr) {
+            console.error('Error parsing JSON data:', parseErr);
+            callback({ error: 'Error parsing JSON data' });
+        }
+    })
+}
+
 app.post('/RecipeMaker', upload.single('image'), (req, res) => {
     const newRecipe = JSON.parse(req.body.recipeData);
     newRecipe.img = req.file ? req.file.filename : 'default.jpg';
@@ -284,51 +322,21 @@ app.post('/EditRecipe', upload.single('image'), (req, res) => {
 
 app.post('/api/deleteRecipe', (req,res) => {
     const { id } = req.body;
+    const deleteOldImage = true;
 
     if (!id) {
         return res.status(400).send({ error: 'Recipe ID is required' });
     }
 
-    removeOldImportAndFile(newRecipe.id, (err) => {
+    removeOldImportAndFile(id, deleteOldImage, (err) => {
         if (err) {
             console.error('Error removing old import and file:', err);
             return res.status(500).send('Error removing old import and file');
         }
-
-        fs.readFile('recipes.json', 'utf8', (err, data) => {
+        removeRecipe(id, (err) => {
             if (err) {
-                console.error('Error reading the file:', err);
-                res.status(500).send('Error reading the file');
-                return;
-            }
-
-            try {
-                let recipesData = JSON.parse(data);
-                recipesData[0].count = parseInt(recipesData[0].count) - 1;
-                let recipes = recipesData[0].recipes;
-
-                const recipeIndex = recipes.findIndex(recipe => recipe.id === id);
-
-                if (recipeIndex === -1) {
-                    return res.status(404).send({ error: 'Recipe not found' });
-                }
-
-                recipes = recipes.filter(recipe => recipe.id !== id);
-                recipesData[0].recipes = recipes
-
-                // Write the updated JSON back to the file
-                fs.writeFile('recipes.json', JSON.stringify(recipesData, null, 2), 'utf8', (writeErr) => {
-                    if (writeErr) {
-                        console.error('Error writing to the file:', writeErr);
-                        res.status(500).send('Error writing to the file');
-                        return;
-                    }
-
-                    res.send('Recipe removed successfully');
-                })
-            } catch (parseErr) {
-                console.error('Error parsing JSON data:', parseErr);
-                res.status(500).send({ error: 'Error parsing JSON data' });
+                console.error('Error removing old recipe from recipe.json:', err);
+                return res.status(500).send('Error removing old recipe from recipe.json');
             }
         })
     })

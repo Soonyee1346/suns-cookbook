@@ -1,6 +1,7 @@
 To Do
 - Remove img, page, anything else when deleting Recipe
-    - Copy EditRecipe function in server.js
+    - Remove imports, images, files Done.
+    - Remove recipe from recipe.json
 - Improve RecipeMaker like you did Edit Recipe
 - Make a Recipe sometimes doesn't work on first go
 - Move ALL API calls into /api -- Maybe not working
@@ -33,4 +34,5 @@ Finished? Tasks
     - Where id = id, replace data Done.
     - Finished up to Images. Do the Ingredients and Methods Done.
     - Create Edit Function in Server.js Done.
+    - Remove old image if new image is uploaded Done.
 - Format of Routes after uploading recipe gets messed up (server) Done.
