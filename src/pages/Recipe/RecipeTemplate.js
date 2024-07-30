@@ -2,16 +2,20 @@ import React from 'react';
 import RecipePage from "../../components/RecipePage";
 import '../../css/recipePage.css';
 import deleteRecipe from "../../api/deleteRecipe"; // Import as default
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Recipe(props) {
+
+    const navigate = useNavigate();
 
     const recipeId = props.Recipe ? props.Recipe.id : '3';
 
     const deleteEvent = async () => {
         try {
-            await deleteRecipe(props.Recipe.id);
-            
+            await Promise.all([
+                navigate('/Recipes'),
+                deleteRecipe(props.Recipe.id)
+            ]);
         } catch (error) {
             console.error('Error deleting recipe:', error);
         }

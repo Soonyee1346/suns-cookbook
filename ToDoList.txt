@@ -1,8 +1,4 @@
 To Do
-- Remove img, page, anything else when deleting Recipe
-    - Remove imports, images, files Done.
-    - Remove recipe from recipe.json Done.
-    - Navigate back to /Recipes after unmounting: hard.
 - Improve RecipeMaker like you did Edit Recipe
 - Make a Recipe sometimes doesn't work on first go
 - Move ALL API calls into /api -- Maybe not working
@@ -13,7 +9,6 @@ To Do
     - Fix alignment
     - Image upload
     - Image size changes a lot of things
-- Make a Recipe sometimes doesn't work on first go
 
 Finished? Tasks
 - Images for RecipeMaker? Done.
@@ -37,3 +32,7 @@ Finished? Tasks
     - Create Edit Function in Server.js Done.
     - Remove old image if new image is uploaded Done.
 - Format of Routes after uploading recipe gets messed up (server) Done.
+- Remove img, page, anything else when deleting Recipe
+    - Remove imports, images, files Done.
+    - Remove recipe from recipe.json Done.
+    - Navigate back to /Recipes after unmounting Done.

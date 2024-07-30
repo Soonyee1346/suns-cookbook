@@ -3,7 +3,7 @@
     "count": 7,
     "recipes": [
       {
-        "id": "0",
+        "id": 0,
         "name": "Spaghetti",
         "img": "spaghetti.jpeg",
         "ingredients": [
@@ -40,7 +40,7 @@
         ]
       },
       {
-        "id": "1",
+        "id": 1,
         "name": "Chicken Rice",
         "img": "chickenrice.jpg",
         "ingredients": [
@@ -83,7 +83,7 @@
         ]
       },
       {
-        "id": "2",
+        "id": 2,
         "name": "Honey Chicken Rice and Potato",
         "img": "honeychicken.jpeg",
         "ingredients": [
