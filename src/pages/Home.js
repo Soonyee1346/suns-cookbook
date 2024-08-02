@@ -70,24 +70,60 @@ function Home(props) {
 
     }
 
-    return (
-        <>  
+    if(props.Recipes.length == 0){
+        return (
+            <>  
+                <h1 className="bold">No Recipes In The Book!</h1>
+            </>
+        )
+    }
+    else if(props.Recipes.length < 2){
+        return (
+            <>  
             <h1 className="bold">Suggested Meals This Week</h1>
-            <button className="refreshHome" onClick={changeRecipes}><i className="fa fa-refresh" aria-hidden="true"></i></button>
             <div className="homecontainer">
                 <div className="homefood left">
-                    <PriceTable recipe={props.Recipes[rec1]}/>
-                </div>
-                <div className="homefood right">
-                    <PriceTable recipe={props.Recipes[rec2]}/>
-                </div>
-                <div className="homefood left">
-                    <PriceTable recipe={props.Recipes[rec3]}/>
+                    <PriceTable recipe={props.Recipes[0]}/>
                 </div>
             </div>
-        
-        </>
-    )
+            </>
+        )
+    }
+    else if(props.Recipes.length < 3){
+        return (
+            <>  
+            <h1 className="bold">Suggested Meals This Week</h1>
+            <div className="homecontainer">
+                <div className="homefood left">
+                    <PriceTable recipe={props.Recipes[0]}/>
+                </div>
+                <div className="homefood right">
+                    <PriceTable recipe={props.Recipes[1]}/>
+                </div>
+            </div>
+            </>
+        )
+    }
+    else {
+        return (
+            <>  
+                <h1 className="bold">Suggested Meals This Week</h1>
+                <button className="refreshHome" onClick={changeRecipes}><i className="fa fa-refresh" aria-hidden="true"></i></button>
+                <div className="homecontainer">
+                    <div className="homefood left">
+                        <PriceTable recipe={props.Recipes[rec1]}/>
+                    </div>
+                    <div className="homefood right">
+                        <PriceTable recipe={props.Recipes[rec2]}/>
+                    </div>
+                    <div className="homefood left">
+                        <PriceTable recipe={props.Recipes[rec3]}/>
+                    </div>
+                </div>
+            
+            </>
+        )
+    }
 }
 
   export default Home;
