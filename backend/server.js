@@ -84,7 +84,7 @@ function importApp(recipeName, id, callback) {
             return callback(err);
         }
 
-        const newRoute = `<Route path="/Recipes/${name}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[${id-1}] : []}/>} />`;
+        const newRoute = `<Route path="/Recipes/${name}" element={<${name} Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(${id})] : []}/>} />`;
 
         // Find the position where to insert the newRoute
         const routesIndex = data.indexOf('<Routes>');
@@ -129,7 +129,7 @@ function removeOldImportAndFile(id, deleteOldImage, callback) {
 
             //remove Import and Route Statement
             const importRoute = `import ${formattedName} from './pages/Recipe/${formattedName}.js';`
-            const oldRoute = `<Route path="/Recipes/${formattedName}" element={<${formattedName} Recipe={Data.length > 0 ? Data[0].recipes[${id-1}] : []}/>} />`
+            const oldRoute = `<Route path="/Recipes/${formattedName}" element={<${formattedName} Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(${id})] : []}/>} />`
             const updatedContent = appData.split('\n').filter(line => line.trim() !== importRoute.trim() && line.trim() !== oldRoute.trim()).join('\n');
 
             fs.writeFile(appPath, updatedContent, 'utf8', (writeErr) => {
