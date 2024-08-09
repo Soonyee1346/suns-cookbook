@@ -61,7 +61,7 @@ function formatName(str) {
 function newRecipePage(recipeName, callback) {
     const templatePath = path.join(__dirname, '../src/pages/Recipe/RecipeTemplate.js');
     const fileName = formatName(recipeName);
-    const pagePath = path.join(__dirname, `../src/pages/Recipe/${fileName.js}`);
+    const pagePath = path.join(__dirname, `../src/pages/Recipe/${fileName}.js`);
 
     fs.copyFile(templatePath, pagePath, (err) => {
         if (err) {
