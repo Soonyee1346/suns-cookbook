@@ -1,6 +1,6 @@
 [
   {
-    "count": 7,
+    "count": 8,
     "recipes": [
       {
         "id": 1,
@@ -216,6 +216,25 @@
           "3"
         ],
         "img": "image-1721214022889.png"
+      },
+      {
+        "id": 8,
+        "name": "Testtest",
+        "ingredients": [
+          {
+            "ingredient": "1243",
+            "quantity": "4434243"
+          },
+          {
+            "ingredient": "awef",
+            "quantity": "awef"
+          }
+        ],
+        "method": [
+          "1234adf",
+          "awefawef"
+        ],
+        "img": "image-1723175098458.jpg"
       }
     ]
   }
