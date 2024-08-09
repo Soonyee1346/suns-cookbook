@@ -210,7 +210,7 @@ function EditRecipe() {
                         <h3>Recipe Image</h3>
                         <input type="file" id="image" style={{ display: 'none' }} onChange={handleFileInputChange}/>
                         <button type="button" onClick={handleFileInputClick}>Change Image</button>
-                        <br></br><img className="fileImg" id="outputImg"></img>
+                        <br></br><img className="fileImg" id="outputImg" alt="Selected Recipe"></img>
                     </div>
                     <div className="ingredientssection">
                         <h3>Ingredients</h3>

@@ -60,6 +60,27 @@ function RecipeMaker(props) {
         document.getElementById('image').click();
     }
 
+    function handleFileInputChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                var imageSection = document.getElementById("imageSection");
+                var imgElement= document.createElement('img');
+                
+                imgElement.src = e.target.result;
+                imgElement.style.display = 'block';
+                imgElement.id = "outputImg"
+                imgElement.className = "fileImg"
+                imgElement.alt = "Selected Recipe Image"
+
+                imageSection.appendChild(imgElement)
+
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
     function submitRecipe() {
         var recipeData = formatData();
         const formData = new FormData();
@@ -109,9 +130,9 @@ function RecipeMaker(props) {
                         <h3>Recipe Name</h3>
                         <input type="text" id="name" placeholder="Recipe Name" required />
                     </div>
-                    <div className="image section">
+                    <div className="image section" id="imageSection">
                         <h3>Recipe Image</h3>
-                        <input type="file" id="image" style={{ display: 'none' }} required />
+                        <input type="file" id="image" style={{ display: 'none' }} onChange={handleFileInputChange} required />
                         <button type="button" onClick={handleFileInputClick}>Upload Image</button>
                     </div>
                     <div className="ingredientssection">

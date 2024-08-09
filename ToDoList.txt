@@ -1,5 +1,4 @@
 To Do
-- Improve RecipeMaker like you did Edit Recipe
 - Make a Recipe sometimes doesn't work on first go
 - Move ALL API calls into /api -- Maybe not working
     - fetchRecipes - Didn't work.
@@ -39,3 +38,5 @@ Finished? Tasks
 - Update Recipe Routes Done.
     - Using Array of Data Done.
         - Use array search by ID on App.js Done.
+- Improve RecipeMaker like you did Edit Recipe Done.
+    - Add image preview Done.

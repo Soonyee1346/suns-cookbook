@@ -36,7 +36,6 @@ function App() {
   function getRecipeIndex(id) {
 
     const recipeIndex = Data[0].recipes.findIndex(recipe => parseInt(recipe.id) === id);
-    console.log(recipeIndex)
     return recipeIndex;
 
   }
