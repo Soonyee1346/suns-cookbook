@@ -1,13 +1,10 @@
 To Do
-- Make a Recipe sometimes doesn't work on first go
-- Move ALL API calls into /api -- Maybe not working
-    - fetchRecipes - Didn't work.
-    - Add Recipe - ???
 - Work on css (so much to do)
     - Going from anything but Home to Recipes ugly
     - Fix alignment
     - Image upload
     - Image size changes a lot of things
+- Editing Recipe needs to reload recipes
 
 Finished? Tasks
 - Images for RecipeMaker? Done.
