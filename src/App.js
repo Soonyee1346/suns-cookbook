@@ -1,7 +1,3 @@
-import Testtest from './pages/Recipe/Testtest.js';
-import Test6 from './pages/Recipe/Test6.js';
-import Test5 from './pages/Recipe/Test5.js';
-import Test4 from './pages/Recipe/Test4.js';
 import Test from './pages/Recipe/Test.js';
 import ChickenRice from './pages/Recipe/ChickenRice.js';
 import HoneyChickenRiceandPotato from './pages/Recipe/HoneyChickenRiceandPotato.js';
@@ -46,10 +42,6 @@ function App() {
       <Nav />
       <div className="topdivider"></div>
       <Routes>
-        <Route path="/Recipes/Testtest" element={<Testtest Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(8)] : []}/>} />
-        <Route path="/Recipes/Test6" element={<Test6 Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(7)] : []}/>} />
-        <Route path="/Recipes/Test5" element={<Test5 Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(6)] : []}/>} />
-        <Route path="/Recipes/Test4" element={<Test4 Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(5)] : []}/>} />
         <Route path="/Recipes/Test" element={<Test Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(4)] : []}/>} />
         <Route path="/Recipes/HoneyChickenRiceandPotato" element={<HoneyChickenRiceandPotato Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(3)] : []}/>} />
         <Route path="/Recipes/ChickenRice" element={<ChickenRice Recipe={Data.length > 0 ? Data[0].recipes[getRecipeIndex(2)] : []}/>} />

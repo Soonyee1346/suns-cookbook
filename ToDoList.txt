@@ -1,8 +1,8 @@
 To Do
 - Work on css (so much to do)
-    - Going from anything but Home to Recipes ugly
-    - Fix alignment
-    - Image upload
+    - Going from anything but Home to Recipes ugly Done.
+    - Fix alignment Done.
+    - Image upload Done.
     - Image size changes a lot of things
 - Editing Recipe needs to reload recipes
 
