@@ -1,9 +1,11 @@
 import '../css/tables.css'
-import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom"
 
 function PriceTable(props) {
 
-    const img = `/images/${props.recipe.img}`
+    const img = `/images/${props.recipe?.img || ""}`;
+    const name = (`${props.recipe?.name || ""}`).replace(/\s+/g, '');
+    const linkTo = `/Recipes/${name}`;
 
     function createTable(ingArray) {
         const rows = [];
@@ -13,7 +15,7 @@ function PriceTable(props) {
             const ing = ingArray[i];
             row = (
                 <tr key={i}>
-                    <td>{ing.name}</td>
+                    <td>{ing.ingredient}</td>
                     <td>{ing.quantity}</td>
                 </tr>
             );
@@ -24,9 +26,9 @@ function PriceTable(props) {
     }
 
     return (
-        <><a className="recipelink" href="./pages/Recipes/Spaghetti.html"><img src={img}/></a>
+        <><Link className="recipelink" to={linkTo}><img src={img} alt="recipeImg"/></Link>
         <span className="ingredients">
-        <h2>{props.recipe.name}</h2>
+        <h2>{props.recipe?.name || ""}</h2>
         <table className="priceTable" id="priceTable">
             <thead>
                 <tr>
@@ -35,11 +37,11 @@ function PriceTable(props) {
                 </tr>
             </thead>
             <tbody>
-                {createTable(props.recipe.ingredients)}
+                {createTable(props.recipe?.ingredients || "")}
             </tbody>
         </table>
         <div className="priceLine"></div>
-    </span></>
+        </span></>
     )
 }
 

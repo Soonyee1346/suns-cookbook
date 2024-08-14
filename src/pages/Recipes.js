@@ -7,7 +7,7 @@ function Recipes(props) {
         <>
             <h1>Recipes</h1>
             <div className="recipes">
-                <Tiles recipes={props.Data}/>
+                <Tiles recipes={props.Recipes}/>
             </div>
         </>
     )

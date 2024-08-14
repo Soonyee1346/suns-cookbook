@@ -1,0 +1,175 @@
+[
+  {
+    "count": 4,
+    "recipes": [
+      {
+        "id": 1,
+        "name": "Spaghetti",
+        "img": "spaghetti.jpeg",
+        "ingredients": [
+          {
+            "ingredient": "Pasta",
+            "quantity": "500g"
+          },
+          {
+            "ingredient": "Minced Meat",
+            "quantity": "500g"
+          },
+          {
+            "ingredient": "Pasta Sauce",
+            "quantity": "500g"
+          },
+          {
+            "ingredient": "Garlic",
+            "quantity": "3 Cloves"
+          },
+          {
+            "ingredient": "Small Onion",
+            "quantity": "1"
+          }
+        ],
+        "method": [
+          "Cook meat in a pan on medium-high heat for 5 minutes",
+          "Add chopped Onions and Garlic and cook for 10 minutes",
+          "Add Pasta Sauce",
+          "Boil water",
+          "Cook Pasta",
+          "Drain pasta water and add to pan",
+          "Stir well",
+          "Serve"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Chicken Rice",
+        "img": "chickenrice.jpg",
+        "ingredients": [
+          {
+            "ingredient": "Rice",
+            "quantity": "1 cup"
+          },
+          {
+            "ingredient": "Chicken Breast",
+            "quantity": "1"
+          },
+          {
+            "ingredient": "Cucumber Slices",
+            "quantity": "8"
+          },
+          {
+            "ingredient": "Hainanese Rice Paste",
+            "quantity": "2 Tablespoons"
+          },
+          {
+            "ingredient": "Sweet Soy",
+            "quantity": "Eyeball it"
+          },
+          {
+            "ingredient": "(Optional) Fried Garlic",
+            "quantity": "1 Tablespoon"
+          }
+        ],
+        "method": [
+          "Wash rice with soap haha",
+          "Add 2 Tablespoons of Hainanese Rice Paste per cup of rice and stir well",
+          "Cook rice in the rice cooker",
+          "Boil chicken breast for 20 minutes",
+          "Slice cucumber and plate",
+          "Add cooked rice to plate",
+          "Chop boiled chicken into bite-sized bits and plate",
+          "Drizzle Sweet Soy across chicken, rice and cucumber",
+          "(Optional) Add Fried Garlic",
+          "Stir and serve"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Honey Chicken Rice and Potato",
+        "img": "honeychicken.jpeg",
+        "ingredients": [
+          {
+            "ingredient": "Rice",
+            "quantity": "2 cups"
+          },
+          {
+            "ingredient": "Chicken Breast",
+            "quantity": "650g"
+          },
+          {
+            "ingredient": "White Potato",
+            "quantity": "700g"
+          },
+          {
+            "ingredient": "Honey",
+            "quantity": "2 Tablespoons"
+          },
+          {
+            "ingredient": "Paprika",
+            "quantity": "3 Tablespoons"
+          },
+          {
+            "ingredient": "Garlic Powder",
+            "quantity": "2 Tablespoons"
+          },
+          {
+            "ingredient": "Oregano Leaves",
+            "quantity": "1 Tablespoon"
+          },
+          {
+            "ingredient": "Minced Garlic",
+            "quantity": "1 Tablespoons"
+          },
+          {
+            "ingredient": "Olive Oil",
+            "quantity": "1 Tablespoon"
+          },
+          {
+            "ingredient": "Butter",
+            "quantity": "2 Tablespoons"
+          },
+          {
+            "ingredient": "Black Pepper",
+            "quantity": "Eyeball it"
+          }
+        ],
+        "method": [
+          "Chop up potato into bite-sized cubes",
+          "Add 1tbsp oregano, garlic powder, black pepper, salt, and olive oil",
+          "Chuck in air-fryer at 200-220 degrees for 10 minutes, take out, shake, then add back in for another 10 minutes",
+          "Chop up chicken into bite-sized cubes",
+          "Add 1tbsp paprika, garlic powder, black pepper, salt, and olive oil",
+          "On medium heat, add butter and minced garlic",
+          "Add the seasoned chicken and cook for 10 minutes",
+          "Add honey and BBQ Sauce and mix well",
+          "Package cooked rice, potato, chicken into 4 seperate containers for meal prep"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "test",
+        "ingredients": [
+          {
+            "ingredient": "1",
+            "quantity": "2"
+          },
+          {
+            "ingredient": "3",
+            "quantity": "4"
+          }
+        ],
+        "img": "image-1719805413778.jpg",
+        "method": [
+          "Chop up potato into bite-sized cubes",
+          "Add 1tbsp oregano, garlic powder, black pepper, salt, and olive oil",
+          "Chuck in air-fryer at 200-220 degrees for 10 minutes, take out, shake, then add back in for another 10 minutes",
+          "Chop up chicken into bite-sized cubes",
+          "Add 1tbsp paprika, garlic powder, black pepper, salt, and olive oil",
+          "On medium heat, add butter and minced garlic",
+          "Add the seasoned chicken and cook for 10 minutes",
+          "Add honey and BBQ Sauce and mix well",
+          "Package cooked rice, potato, chicken into 4 seperate containers for meal prep"
+        ]
+      }
+    ]
+  }
+]

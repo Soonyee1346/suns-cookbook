@@ -12,6 +12,8 @@ h1 {
     max-height: 400px;
     margin-bottom: 4rem;
     justify-content: center;
+    margin-left: 0%;
+    margin-right: 0%;
 }
 
 .left {

@@ -1,5 +1,4 @@
 import '../css/tiles.css'
-import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 
 function RecipeTiles(props) {
@@ -12,9 +11,11 @@ function RecipeTiles(props) {
             const tile = recipeArr[i];
             const img = `/images/${tile.img}`
             const key = `tile${i}`
+            const name = (`${recipeArr[i].name || ""}`).replace(/\s+/g, '');
+            const linkTo = `/Recipes/${name}`
             row = (
-                <Link className="box" to="/Recipes/Spaghetti.html" key={key}>
-                        <img src={img} />
+                <Link className="box" to={linkTo} key={key}>
+                        <img src={img} alt={tile.name}/>
                         <h1 className="boxtitle bold">{tile.name}</h1>
                 </Link>
             );

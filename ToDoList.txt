@@ -1,0 +1,39 @@
+To Do
+- Work on css (so much to do)
+    - Going from anything but Home to Recipes ugly Done.
+    - Fix alignment Done.
+    - Image upload Done.
+    - Image size changes a lot of things
+- Editing Recipe needs to reload recipes
+
+Finished? Tasks
+- Images for RecipeMaker? Done.
+- Reload page? after every recipes.json update. Done?
+- Individual recipe pages
+    - Server function that creates multiple pages on upload of recipes
+        - Update App.js import?? Can it be done? Done
+            - Add to App.js Import recipe.name from './pages/Recipe/recipe.name.js' Done
+        - Adds Recipe Page based off recipeTemplate Done.
+        - Add Recipe Method into RecipeMaker Done.
+        - Add Method to Recipe.js Done.
+    - URL in recipes.json Done.
+    - What about Method - Array of strings in recipes.json Done.
+- Add Remove Recipe function Done.
+    - Go back to /Recipes using useNavigate Done.
+- Add Edit function
+    - Create new page similar to AddRecipe Done.
+    - Send formatted data to server.js Done.
+    - Where id = id, replace data Done.
+    - Finished up to Images. Do the Ingredients and Methods Done.
+    - Create Edit Function in Server.js Done.
+    - Remove old image if new image is uploaded Done.
+- Format of Routes after uploading recipe gets messed up (server) Done.
+- Remove img, page, anything else when deleting Recipe
+    - Remove imports, images, files Done.
+    - Remove recipe from recipe.json Done.
+    - Navigate back to /Recipes after unmounting Done.
+- Update Recipe Routes Done.
+    - Using Array of Data Done.
+        - Use array search by ID on App.js Done.
+- Improve RecipeMaker like you did Edit Recipe Done.
+    - Add image preview Done.
