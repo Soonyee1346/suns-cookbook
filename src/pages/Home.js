@@ -47,7 +47,7 @@ function Home(props) {
         while(same){
             var secondRec = Math.floor(Math.random() * length)
 
-            if(secondRec != firstRec){
+            if(secondRec !== firstRec){
                 recArr.push(secondRec)
                 same = false;
             }
@@ -58,7 +58,7 @@ function Home(props) {
         while(same){
             var thirdRec = Math.floor(Math.random() * length)
 
-            if(thirdRec != firstRec && thirdRec != secondRec){
+            if(thirdRec !== firstRec && thirdRec !== secondRec){
                 recArr.push(thirdRec)
                 same = false;
             }
@@ -70,7 +70,7 @@ function Home(props) {
 
     }
 
-    if(props.Recipes.length == 0){
+    if(props.Recipes.length === 0){
         return (
             <>  
                 <h1 className="bold">No Recipes In The Book!</h1>

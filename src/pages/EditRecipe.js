@@ -43,7 +43,7 @@ function EditRecipe() {
         for(var num1 = 0; num1 < methodNum; num1++){
             var currentMethod = num1 + 1
             var methodList = document.getElementById("methodList");
-            var innerDiv = document.createElement('div');
+            innerDiv = document.createElement('div');
             innerDiv.id = `meth${currentMethod}`
     
             var methodInput = document.createElement('input')
